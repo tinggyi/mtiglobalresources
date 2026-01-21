@@ -1,0 +1,3358 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MTI Education Resources - Your Compass to Global Education</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        title {
+            font-size: 50px;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #000000;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Navigation Bar */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: white;
+            padding: 1.2rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            height: 55px;
+        }
+
+        .logo img {
+            height: 100%;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: rgb(16, 16, 16);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            cursor: pointer;
+            position: relative;
+            padding-bottom: 5px;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #000;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: #ff6b35;
+        }
+
+        .cta-button {
+            background: #ff6b35;
+            color: white;
+            padding: 0.8rem 1.8rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 800;
+            transition: all 0.3s;
+            cursor: pointer;
+            display: inline-block;
+            border: none;
+            /* Add this line */
+            font-size: 1rem;
+            outline: none;
+            /* Also add this to remove focus outline */
+        }
+
+        .cta-button:focus {
+            outline: none;
+            /* Remove outline on click/focus */
+        }
+
+        .cta-button:hover {
+            background: #ff8555;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 107, 53, 0.4);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+                url('testing1.png') no-repeat center center;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            text-align: left;
+            color: white;
+            position: relative;
+            padding-left: 5%;
+        }
+
+        .hero-content {
+            max-width: 750px;
+            padding: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero h2 {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            font-weight: 400;
+            opacity: 0.95;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-button {
+            display: inline-block;
+            background: white;
+            color: #333;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+            background: #ff6b35;
+            color: white;
+        }
+
+        /* Scroll Indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+
+        .scroll-indicator::before {
+            content: '↓';
+            font-size: 2rem;
+            color: rgb(249, 246, 246);
+            opacity: 0.7;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateX(-50%) translateY(0);
+            }
+
+            40% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+
+            60% {
+                transform: translateX(-50%) translateY(-5px);
+            }
+        }
+
+        /* Section Styling */
+        section {
+            min-height: 100vh;
+            padding: 6rem 5%;
+        }
+
+        /* About Us Section */
+        #about {
+            background: #f9f9f9;
+        }
+
+        .about-container {
+            display: flex;
+            gap: 3rem;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .about-text {
+            flex: 1 1 400px;
+        }
+
+        .about-text h3 {
+            font-size: 0.9rem;
+            color: #ff6b35;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.3;
+            color: #333;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .about-image {
+            flex: 1 1 400px;
+            text-align: center;
+        }
+
+        .about-image img {
+            width: 100%;
+            max-width: 700px;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        /* Founder Section - Image Left, Text Right */
+        .about-text2 {
+            max-width: 1100px;
+            /* Increased width to fit both side-by-side */
+            margin: 6rem auto;
+            display: flex;
+            /* This puts them in a row */
+            align-items: center;
+            /* Vertically centers them */
+            gap: 4rem;
+            /* Space between image and text */
+            padding: 0 5%;
+            /* Adds side padding on smaller screens */
+        }
+
+        /* The Image Container (Left Side) */
+        .founder-img {
+            flex: 1;
+            /* Takes up roughly 40% of space */
+            min-width: 300px;
+            /* Ensures image doesn't get too small */
+        }
+
+        .founder-img img {
+            width: 100%;
+            /* Fills the container */
+            border-radius: 12px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+            /* Nice shadow */
+            object-fit: cover;
+        }
+
+        /* The Text Container (Right Side) */
+        .founder-text {
+            flex: 1.2;
+            /* Takes up slightly more space (60%) */
+            text-align: left;
+            /* Aligns text to the left for better reading */
+        }
+
+        .founder-text h3 {
+            font-size: 0.9rem;
+            color: #ff6b35;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        .founder-text h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.3;
+            color: #333;
+        }
+
+        .founder-text p {
+            font-size: 1.05rem;
+            color: #555;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        /* Mobile Responsive: Stack them on phones */
+        @media (max-width: 850px) {
+            .about-text2 {
+                flex-direction: column;
+                /* Stack vertically */
+                text-align: center;
+                /* Center align on mobile */
+            }
+
+            .founder-text {
+                text-align: center;
+            }
+        }
+
+        /* Values Section */
+        .values-container {
+            max-width: 1200px;
+            margin: 3rem auto 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            padding-top: 5%;
+            padding-bottom: 5%;
+        }
+
+        .value-box {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            min-height: 200px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            border: 1px solid #eee;
+            transition: all 0.3s ease;
+        }
+
+        .value-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .value-box h4 {
+            color: #ff6b35;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .value-box p {
+            color: #555;
+            line-height: 1.6;
+            font-size: 0.95rem;
+            text-align: left;
+        }
+
+        @media(max-width: 1024px) {
+            .values-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media(max-width: 600px) {
+            .values-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Services Section */
+        #services {
+            padding: 6rem 5%;
+            background: white;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h3 {
+            font-size: 0.9rem;
+            color: #ff6b35;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: #333;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: #ff6b35;
+        }
+
+        /* Services Grid */
+        .services-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            /* CHANGE 1: Force exactly 4 equal columns */
+            grid-template-columns: repeat(4, 1fr);
+            /* CHANGE 2: Reduced gap slightly to help them fit */
+            gap: 1.5rem;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            border: 1px solid #f0f0f0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-image {
+            width: 100%;
+            /* CHANGE 3: Made image slightly shorter to save space */
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .service-card:hover .service-image {
+            transform: scale(1.05);
+        }
+
+        .service-content {
+            /* CHANGE 4: Reduced padding so text fits better in narrow cards */
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-content h4 {
+            color: #e63946;
+            /* CHANGE 5: Slightly smaller font size for the header */
+            font-size: 1.25rem;
+            margin-bottom: 0.8rem;
+            font-weight: 700;
+        }
+
+        .service-content p {
+            color: #555;
+            line-height: 1.6;
+            /* CHANGE 6: Slightly smaller text */
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .service-cta {
+            display: inline-block;
+            color: #ff6b35;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            align-self: flex-start;
+        }
+
+        .service-cta:hover {
+            color: #e63946;
+            transform: translateX(5px);
+        }
+
+        .service-cta::after {
+            content: ' →';
+        }
+
+        /* Responsive Design - Keep them stacked on tablets/mobile */
+        @media (max-width: 1024px) {
+            .services-grid {
+                /* On tablets (iPad), switch to 2 rows of 2 */
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .services-grid {
+                /* On phones, stack them 1 by 1 */
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        /* Destination Section */
+        /* Destination Section */
+        #destination {
+            background: white;
+        }
+
+        .destinations-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .destination-card {
+            position: relative;
+            height: 350px;
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+        }
+
+        .destination-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6));
+            z-index: 1;
+            transition: all 0.4s ease;
+        }
+
+        .destination-card:hover::before {
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(255, 107, 53, 0.7));
+        }
+
+        .destination-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(12, 2, 52, 0.2);
+        }
+
+        .destination-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .destination-card:hover .destination-image {
+            transform: scale(1.05);
+        }
+
+        .destination-name {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+            color: white;
+            font-size: 1.8rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            transition: all 0.3s ease;
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        .destination-card:hover .destination-name {
+            transform: translate(-50%, -50%) scale(1.08);
+        }
+
+        /* University List Section */
+        .university-section {
+            display: none;
+            max-width: 1200px;
+            margin: 3rem auto;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .university-section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #333;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            cursor: pointer;
+            margin-bottom: 2rem;
+            border: none;
+            font-size: 1rem;
+        }
+
+        .back-button:hover {
+            background: #ff6b35;
+            transform: translateX(-5px);
+        }
+
+        .country-title {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .country-description {
+            text-align: center;
+            color: #666;
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .universities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .university-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 1px solid #eee;
+        }
+
+        .university-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .university-card h4 {
+            color: #333;
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .university-card p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 0.5rem;
+        }
+
+        .university-location {
+            color: #ff6b35;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+        }
+
+        .university-link {
+            display: inline-block;
+            color: #ff6b35;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 1rem;
+            transition: all 0.3s;
+        }
+
+        .university-link:hover {
+            color: #ff8555;
+            transform: translateX(5px);
+        }
+
+        /* Search Box */
+        .search-container {
+            max-width: 600px;
+            margin: 0 auto 3rem auto;
+            position: relative;
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 1rem 3rem 1rem 1.5rem;
+            border: 2px solid #ddd;
+            border-radius: 50px;
+            font-size: 1rem;
+            transition: all 0.3s;
+            outline: none;
+        }
+
+        .search-box:focus {
+            border-color: #ff6b35;
+            box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.1);
+        }
+
+        .search-icon {
+            position: absolute;
+            right: 1.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #999;
+            font-size: 1.2rem;
+        }
+
+        @media(max-width: 768px) {
+            .destinations-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 1.5rem;
+            }
+
+            .destination-card {
+                height: 300px;
+            }
+
+            .destination-name {
+                font-size: 1.5rem;
+            }
+        }
+
+
+        /* Contact Section */
+        #contact {
+            background: #f9f9f9;
+        }
+
+        .contact-container {
+            max-width: 1200px;
+            /* Increased overall width */
+            margin: 0 auto;
+            display: grid;
+            /* CHANGE 1: 30% width for Text, 70% width for Form (Makes form wider) */
+            grid-template-columns: 0.9fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        /* Left Side - Contact Info */
+        .contact-info {
+            color: #333;
+            padding-left: 6rem;
+        }
+
+        .contact-info h3 {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            color: #333;
+        }
+
+        .contact-info p {
+            font-size: 1rem;
+            margin-bottom: 2rem;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .info-item:hover .info-content a,
+        .info-item:hover .info-content p {
+            color: #ff6b35;
+            transition: all 0.5s ease;
+            transform: translate(5px);
+        }
+
+        .info-icon {
+            width: 45px;
+            height: 45px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            margin-right: 1.2rem;
+            flex-shrink: 0;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            color: #ff6b35;
+        }
+
+        .info-content a,
+        .info-content p {
+            font-size: 1rem;
+            color: #444;
+            text-decoration: none;
+            margin: 0;
+        }
+
+        .info-content a:hover {
+            color: #ff6b35;
+        }
+
+        /* Right Side - Contact Form (WIDER & SHORTER) */
+        .contact-form-container {
+            background: white;
+            padding: 2rem 3rem;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+            max-width: 100%;
+            width: 100%;
+        }
+
+        .contact-form-container h3 {
+            font-size: 1.8rem;
+            color: #333;
+            margin-bottom: 0.2rem;
+            /* Reduced gap */
+        }
+
+        .contact-form-container>p {
+            color: #666;
+            margin-bottom: 1.5rem;
+            /* Reduced gap */
+            font-size: 0.9rem;
+        }
+
+        /* Form Elements */
+        .form-group {
+            /* CHANGE 4: Reduced bottom margin to compact height */
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.3rem;
+            color: #444;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.7rem 1rem;
+            /* Slightly reduced padding */
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-family: inherit;
+            transition: all 0.3s ease;
+            background: #fdfdfd;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            /* CHANGE 5: Made message box shorter */
+            min-height: 80px;
+        }
+
+        /* Focus states */
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: #ff6b35;
+            background: white;
+            box-shadow: 0 0 0 4px rgba(255, 107, 53, 0.1);
+            outline: none;
+        }
+
+        .form-row {
+            display: grid;
+            /* CHANGE 6: Ensures inputs sit side-by-side to save vertical space */
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background: #ff6b35;
+            color: white;
+            padding: 0.9rem;
+            /* Slightly thinner button */
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 0.5rem;
+        }
+
+        .submit-btn:hover {
+            background: #ff8555;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 107, 53, 0.3);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 968px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+                /* Stack on mobile */
+                gap: 3rem;
+            }
+
+            .contact-form-container {
+                padding: 2rem;
+            }
+
+            .contact-info {
+                text-align: center;
+                padding-left: 0;
+            }
+
+            .info-item {
+                justify-content: center;
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .info-icon {
+                margin-right: 0;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+                /* Stack inputs on mobile */
+                gap: 1rem;
+            }
+        }
+
+
+        /* Footer Section - Centered Minimalist Style */
+        footer {
+            background: rgb(7, 7, 76);
+            /* Very dark background */
+            color: #fff;
+            padding: 5rem 2rem;
+            text-align: center;
+            /* Centers everything */
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        /* 1. The Logo/Brand Name */
+        .footer-logo {
+            font-size: 2rem;
+            font-weight: 700;
+            color: white;
+            letter-spacing: 1px;
+
+        }
+
+        /* 2. The Navigation Links */
+        .footer-menu {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .footer-menu a {
+            color: #999;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+        }
+
+        .footer-menu a:hover {
+            color: #ff6b35;
+            /* Your orange accent */
+        }
+
+        /* 3. Social Icons */
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+            margin: 1rem 0 2rem;
+        }
+
+        .social-icon {
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.1);
+            /* Transparent grey circle */
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+        }
+
+        .social-icon:hover {
+            background: #ff6b35;
+            /* Orange circle on hover */
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .social-icon img {
+            width: 20px;
+            height: 20px;
+            object-fit: contain;
+            filter: brightness(0) invert(1);
+
+        }
+
+        /* 4. Copyright Text */
+        .footer-copyright {
+            color: #666;
+            font-size: 0.9rem;
+            margin-top: 2rem;
+            border-top: 1px solid #222;
+            /* Subtle divider line */
+            padding-top: 2rem;
+            width: 100%;
+        }
+
+        /* Floating WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+            z-index: 9999;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+        }
+
+        .whatsapp-float svg {
+            width: 35px;
+            height: 35px;
+            fill: white;
+        }
+
+        /* Pulse Animation */
+        .whatsapp-float::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: #25D366;
+            opacity: 0.7;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 0.7;
+            }
+
+            50% {
+                transform: scale(1.2);
+                opacity: 0;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 0;
+            }
+        }
+
+        /* Tooltip */
+        .whatsapp-float .tooltip {
+            position: absolute;
+            right: 70px;
+            background: #333;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 8px;
+            white-space: nowrap;
+            font-size: 14px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            pointer-events: none;
+        }
+
+        .whatsapp-float .tooltip::after {
+            content: '';
+            position: absolute;
+            right: -5px;
+            top: 50%;
+            transform: translateY(-50%) rotate(45deg);
+            width: 10px;
+            height: 10px;
+            background: #333;
+        }
+
+        .whatsapp-float:hover .tooltip {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                bottom: 20px;
+                right: 20px;
+            }
+
+            .whatsapp-float svg {
+                width: 28px;
+                height: 28px;
+            }
+
+            .whatsapp-float .tooltip {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                /* Stack Logo on top of Links */
+                padding: 1rem;
+                position: relative;
+                /* Unfix it if it takes up too much screen */
+            }
+
+            .nav-links {
+                gap: 1rem;
+                margin-top: 1rem;
+                flex-wrap: wrap;
+                /* Allow links to wrap to next line */
+                justify-content: center;
+                /* Center the links */
+                width: 100%;
+                padding: 0;
+            }
+
+            .nav-links a {
+                font-size: 0.9rem;
+                /* Make text slightly smaller */
+                display: block;
+                padding: 5px 10px;
+            }
+
+            /* Adjust Hero padding since Nav is taller now */
+            .hero {
+                padding-top: 140px;
+            }
+        }
+
+        /* SCHOLARSHIP SECTION CSS */
+        #scholarship {
+            background: #f9f9f9;
+        }
+
+        .scholarship-types-grid {
+            max-width: 1200px;
+            margin: 0 auto 2rem auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .scholarship-type-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border: 1px solid #eee;
+        }
+
+        .scholarship-type-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+        }
+
+        .scholarship-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .scholarship-type-card h4 {
+            color: #333;
+            font-size: 1.1rem;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+        }
+
+        .scholarship-type-card p {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        /* 1. The Background Wrapper (Hidden by default) */
+        .scholarship-form-wrapper {
+            display: none;
+            /* HIDDEN unless .active is added */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 10000;
+
+            /* MOBILE FIX: Use flex-start so top isn't cut off */
+            align-items: flex-start;
+            justify-content: center;
+            overflow-y: auto;
+            /* Allows scrolling */
+            padding: 2rem 1rem;
+        }
+
+        /* 2. THIS IS THE MISSING PIECE: The Active State */
+        .scholarship-form-wrapper.active {
+            display: flex;
+            /* This makes it visible! */
+        }
+
+        /* 3. The White Form Container */
+        .scholarship-form-container {
+            background: white;
+            max-width: 600px;
+            width: 100%;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            position: relative;
+
+            /* Center the form vertically if screen is large enough */
+            margin: auto;
+
+            animation: slideUp 0.3s ease;
+        }
+
+        /* 4. The Animation */
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .form-close-btn {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: #f0f0f0;
+            border: none;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+        }
+
+        .form-close-btn:hover {
+            background: #ff6b35;
+            color: white;
+            transform: rotate(90deg);
+        }
+
+        .scholarship-form-container h3 {
+            font-size: 1.8rem;
+            color: #333;
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+
+        .form-subtitle {
+            color: #666;
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .form-note {
+            text-align: center;
+            color: #999;
+            font-size: 0.85rem;
+            margin-top: 1.5rem;
+        }
+
+        /* Form styling - reuse existing .form-group styles */
+
+        @media (max-width: 768px) {
+            .scholarship-types-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .scholarship-form-container {
+                padding: 2rem 1.5rem;
+                margin: 1rem;
+            }
+
+            .scholarship-form-wrapper {
+                padding: 1rem;
+            }
+        }
+
+        /* Add to your existing CSS */
+
+        /* Hamburger Menu Icon (hidden by default on desktop) */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+            z-index: 1001;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background-color: #333;
+            transition: all 0.3s ease;
+            border-radius: 3px;
+        }
+
+        /* Hamburger animation when active */
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        /* Mobile Navigation Styles */
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem 5%;
+                position: fixed;
+                flex-direction: row;
+                /* Change from column to row */
+                justify-content: space-between;
+                /* Space between logo and hamburger */
+            }
+
+            .hamburger {
+                display: flex;
+                order: 2;
+                /* Ensures hamburger stays on the right */
+            }
+
+            .logo {
+                order: 1;
+                /* Ensures logo stays on the left */
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                height: 100vh;
+                width: 70%;
+                max-width: 300px;
+                background: white;
+                flex-direction: column;
+                justify-content: flex-start;
+                padding-top: 80px;
+                gap: 0;
+                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+                transition: right 0.4s ease;
+                overflow-y: auto;
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .nav-links li {
+                width: 100%;
+                border-bottom: 1px solid #f0f0f0;
+            }
+
+            .nav-links a {
+                display: block;
+                padding: 1.2rem 2rem;
+                width: 100%;
+                text-align: left;
+                font-size: 1rem;
+            }
+
+            .nav-links a::after {
+                display: none;
+            }
+
+            .nav-links a:hover {
+                background: #f9f9f9;
+                color: #ff6b35;
+            }
+
+            /* Hero adjustment for mobile */
+            .hero {
+                padding-top: 80px;
+            }
+
+            /* Overlay when menu is open */
+            .nav-overlay {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                background: rgba(0, 0, 0, 0.5);
+                z-index: 999;
+            }
+
+            .nav-overlay.active {
+                display: block;
+            }
+        }
+
+        section {
+            min-height: 100vh;
+            padding: 6rem 5%;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        section.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Hero section stays static (loads immediately) */
+        .hero {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
+
+        /* Force all hero content to be visible immediately with no animation */
+        .hero-content,
+        .hero-content h1,
+        .hero-content h2,
+        .hero-button {
+            opacity: 1 !important;
+            animation: none !important;
+            transform: none !important;
+        }
+
+        /* Cards and elements - no animation by default */
+        .value-box,
+        .service-card,
+        .destination-card,
+        .scholarship-type-card,
+        .university-card,
+        .about-text,
+        .about-image,
+        .about-text2,
+        .section-header,
+        .contact-info,
+        .contact-form-container,
+        .info-item {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        /* Animate class triggers the fade in */
+        .value-box.animate,
+        .service-card.animate,
+        .destination-card.animate,
+        .scholarship-type-card.animate,
+        .university-card.animate,
+        .about-text.animate,
+        .about-image.animate,
+        .about-text2.animate,
+        .section-header.animate,
+        .contact-info.animate,
+        .contact-form-container.animate,
+        .info-item.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Stagger delays for cards within the same container */
+        .value-box:nth-child(1).animate {
+            transition-delay: 0.1s;
+        }
+
+        .value-box:nth-child(2).animate {
+            transition-delay: 0.2s;
+        }
+
+        .value-box:nth-child(3).animate {
+            transition-delay: 0.3s;
+        }
+
+        .value-box:nth-child(4).animate {
+            transition-delay: 0.4s;
+        }
+
+        .service-card:nth-child(1).animate {
+            transition-delay: 0.1s;
+        }
+
+        .service-card:nth-child(2).animate {
+            transition-delay: 0.2s;
+        }
+
+        .service-card:nth-child(3).animate {
+            transition-delay: 0.3s;
+        }
+
+        .service-card:nth-child(4).animate {
+            transition-delay: 0.4s;
+        }
+
+        .scholarship-type-card:nth-child(1).animate {
+            transition-delay: 0.1s;
+        }
+
+        .scholarship-type-card:nth-child(2).animate {
+            transition-delay: 0.2s;
+        }
+
+        .scholarship-type-card:nth-child(3).animate {
+            transition-delay: 0.3s;
+        }
+
+        .scholarship-type-card:nth-child(4).animate {
+            transition-delay: 0.4s;
+        }
+
+        .scholarship-type-card:nth-child(5).animate {
+            transition-delay: 0.5s;
+        }
+
+        .destination-card:nth-child(1).animate {
+            transition-delay: 0.1s;
+        }
+
+        .destination-card:nth-child(2).animate {
+            transition-delay: 0.2s;
+        }
+
+        .destination-card:nth-child(3).animate {
+            transition-delay: 0.3s;
+        }
+
+        .destination-card:nth-child(4).animate {
+            transition-delay: 0.4s;
+        }
+
+        .destination-card:nth-child(5).animate {
+            transition-delay: 0.5s;
+        }
+
+        .info-item:nth-child(1).animate {
+            transition-delay: 0.2s;
+        }
+
+        .info-item:nth-child(2).animate {
+            transition-delay: 0.3s;
+        }
+
+        .info-item:nth-child(3).animate {
+            transition-delay: 0.4s;
+        }
+
+        /* Keep keyframes for hero section */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Working Holiday Dialog CSS */
+        .working-holiday-dialog {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 10000;
+            align-items: flex-start;
+            justify-content: center;
+            overflow-y: auto;
+            padding: 2rem 1rem;
+        }
+
+        .working-holiday-dialog.active {
+            display: flex;
+        }
+
+        .working-holiday-content {
+            background: white;
+            max-width: 700px;
+            width: 100%;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            position: relative;
+            margin: auto;
+            animation: slideUp 0.3s ease;
+        }
+
+        .working-holiday-content h3 {
+            font-size: 2rem;
+            color: #333;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .working-holiday-content h4 {
+            font-size: 1.3rem;
+            color: #ff6b35;
+            margin-top: 1.5rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .working-holiday-content p {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+            font-size: 1.05rem;
+        }
+
+        .working-holiday-content ul {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .working-holiday-content ul li {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .working-holiday-content {
+                padding: 2rem 1.5rem;
+                margin: 1rem;
+            }
+
+            .working-holiday-dialog {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/60176908241" target="_blank" class="whatsapp-float">
+        <span class="tooltip">Chat with us on WhatsApp</span>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+            <path
+                d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z" />
+        </svg>
+    </a>
+
+    <nav>
+        <div class="logo">
+            <img src="logo.png" alt="MTI Logo">
+        </div>
+
+        <!-- Hamburger Icon -->
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#home" onclick="closeMenu()">HOME</a></li>
+            <li><a href="#about" onclick="closeMenu()">ABOUT US</a></li>
+            <li><a href="#services" onclick="closeMenu()">SERVICES</a></li>
+            <li><a href="#destination" onclick="closeMenu()">COUNTRIES</a></li>
+            <li><a href="#scholarship" onclick="closeMenu()">SCHOLARSHIPS</a></li>
+            <li><a href="#contact" onclick="closeMenu()">CONTACT US</a></li>
+        </ul>
+    </nav>
+
+    <!-- Overlay (add this right after nav) -->
+    <div class="nav-overlay" id="navOverlay" onclick="closeMenu()"></div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Your Compass to Global Education</h1>
+            <h2><b>Study Abroad. Scholarships. Career-Focused Pathways</b></h2>
+            <a class="hero-button" href="https://wa.me/60176908241">SPEAK TO AN ADVISOR →</a>
+        </div>
+        <div class="scroll-indicator"></div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about">
+        <div class="about-container">
+            <div class="about-text">
+                <h3>WHAT WE DO</h3>
+                <h2>We help students study overseas the right way.</h2>
+                <p>
+                    We provide clear guidance on universities, courses, and scholarships,
+                    with a focus on cost and future career options.
+                </p>
+                <p>
+                    We recommend what fits the student’s background and budget.
+                    Just advice that makes sense.
+                </p>
+                <a class="cta-button" href="#contact">GET IN TOUCH →</a>
+            </div>
+
+            <div class="about-image">
+                <img src="hero-bg1.jpeg" alt="About MTI Education Resources">
+            </div>
+        </div>
+
+        <div class="values-container">
+            <div class="value-box">
+                <h4>Personalised Planning</h4>
+                <p>
+                    Every student is different.
+                    We recommend options based on the student’s background, ability, and goals.
+                </p>
+            </div>
+
+            <div class="value-box">
+                <h4>Free Consultation</h4>
+                <p>
+                    Honest advice before any commitment.
+
+                </p>
+            </div>
+
+            <div class="value-box">
+                <h4>UK & Europe Pathways That Work</h4>
+                <p>
+                    We focus on universities with real post-study opportunities,
+                    not just well-known names.
+                </p>
+            </div>
+
+            <div class="value-box">
+                <h4>Support Beyond Admission</h4>
+                <p>
+                    Our support continues after acceptance,
+                    from visa application to settling overseas.
+                </p>
+            </div>
+        </div>
+
+        <div class="about-text2">
+            <div class="founder-img">
+                <img src="founder.jpeg" alt="Founder of MTI Education">
+            </div>
+
+            <div class="founder-text">
+                <h3>ABOUT US</h3>
+                <h2>Founded by a UK scholarship graduate.</h2>
+                <p>
+                    A former Vice-Chancellor’s Scholarship holder at Newcastle University, awarded a 50% tuition fee
+                    scholarship, with real experience studying and living overseas, including backpacking across the UK
+                    and Europe.
+                </p>
+                <p>
+                    We guide students with clarity, honesty, and realistic expectations, based on experience rather than
+                    assumptions.
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;— 𝑮𝒍𝒂𝒅𝒚𝒔 𝑳𝒆𝒆
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section id="services">
+        <div class="section-header">
+            <h3>OUR SERVICES</h3>
+            <h2>What We Offer</h2>
+        </div>
+
+        <div class="services-grid">
+            <!-- Service 1: Counselling and Advice -->
+            <div class="service-card">
+                <img src="https://images.unsplash.com/photo-1531498352491-042fbae4cf57?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    alt="Counselling and Advice" class="service-image">
+                <div class="service-content">
+                    <h4>Counselling and Advice</h4>
+                    <p>Personalised study planning based on the student’s goals and budget.
+                    </p>
+                    <a href="#contact" class="service-cta">Learn More</a>
+                </div>
+            </div>
+
+            <!-- Service 2: Universities' Applications -->
+            <div class="service-card">
+                <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=800&q=80"
+                    alt="Universities' Applications" class="service-image">
+                <div class="service-content">
+                    <h4>Universities' Applications</h4>
+                    <p>Support with university applications from start to offer.
+                    </p>
+                    <a href="#contact" class="service-cta">Learn More</a>
+                </div>
+            </div>
+
+            <!-- Service 3: Accommodation Arrangements -->
+            <div class="service-card">
+                <img src="https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=800&q=80"
+                    alt="Accommodation Arrangements" class="service-image">
+                <div class="service-content">
+                    <h4>Accommodation Arrangements</h4>
+                    <p>Guidance on securing suitable student accommodation.</p>
+                    <a href="#contact" class="service-cta">Learn More</a>
+                </div>
+            </div>
+
+            <!-- Service 4: Visa Application -->
+            <div class="service-card">
+                <img src="https://visaagentsinmumbai.com/wp-content/uploads/2024/10/Visa-Application-2.jpg"
+                    alt="Visa Application" class="service-image">
+                <div class="service-content">
+                    <h4>Visa Application</h4>
+                    <p>Step-by-step support for a smooth student visa process.</p>
+                    <a href="#contact" class="service-cta">Learn More</a>
+                </div>
+            </div>
+
+            <!-- Service 5: Working Holiday -->
+            <div class="service-card">
+                <img src="IMG_6617.png" alt="Working Holiday" class="service-image">
+                <div class="service-content">
+                    <h4>Working Holiday Pathways</h4>
+                    <p>Overseas work experience through official Working Holiday visas.</p>
+                    <a href="#" class="service-cta" onclick="showWorkingHolidayDialog(event)">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Destination Section -->
+    <section id="destination">
+        <div class="section-header">
+            <h3>STUDY DESTINATIONS</h3>
+            <h2>Where We Can Take You</h2>
+        </div>
+
+        <!-- Country Cards Grid -->
+        <div class="destinations-grid" id="countriesGrid">
+            <div class="destination-card" onclick="showUniversities('uk')">
+                <img src="UK.jpg" alt="United Kingdom" class="destination-image">
+                <div class="destination-name">United Kingdom</div>
+            </div>
+            <div class="destination-card" onclick="showUniversities('europe')">
+                <img src="Europe.jpg" alt="Europe" class="destination-image">
+                <div class="destination-name">Europe</div>
+            </div>
+            <div class="destination-card" onclick="showUniversities('ireland')">
+                <img src="Ireland.jpg" alt="Ireland" class="destination-image">
+                <div class="destination-name">Ireland</div>
+            </div>
+            <div class="destination-card" onclick="showUniversities('malaysia')">
+                <img src="Malaysia.jpg" alt="Malaysia" class="destination-image">
+                <div class="destination-name">Malaysia</div>
+            </div>
+            <div class="destination-card" onclick="showUniversities('singapore')">
+                <img src="Singapore.jpg" alt="Singapore" class="destination-image">
+                <div class="destination-name">Singapore</div>
+            </div>
+        </div>
+
+        <div class="university-section" id="uk-universities">
+            <button class="back-button" onclick="showCountries()">← Back to Countries</button>
+            <h2 class="country-title">Universities in United Kingdom</h2>
+            <p class="country-description">Explore world-class universities in the UK, known for their academic
+                excellence and rich history.</p>
+
+            <div class="search-container">
+                <input type="text" class="search-box" placeholder="Search universities..."
+                    onkeyup="filterUniversities()">
+                <span class="search-icon">🔍</span>
+            </div>
+
+            <div class="universities-grid">
+                <div class="university-card">
+                    <h4>University of Oxford</h4>
+                    <p class="university-location">📍 Oxford, England</p>
+                    <p>One of the oldest and most prestigious universities in the world.</p>
+                    <a href="https://www.ox.ac.uk/" class="university-link" target="_blank">Learn More →</a>
+                </div>
+
+                <div class="university-card">
+                    <h4>University of Cambridge</h4>
+                    <p class="university-location">📍 Cambridge, England</p>
+                    <p>World-renowned for research and academic excellence.</p>
+                    <a href="https://www.cam.ac.uk/" class="university-link" target="_blank">Learn More →</a>
+                </div>
+
+                <div class="university-card">
+                    <h4>University College London (UCL)</h4>
+                    <p class="university-location">📍 London, England</p>
+                    <p>London's leading multidisciplinary university with global impact.</p>
+                    <a href="https://www.ucl.ac.uk/" class="university-link" target="_blank">Learn More →</a>
+                </div>
+
+                <div class="university-card">
+                    <h4>Imperial College London</h4>
+                    <p class="university-location">📍 London, England</p>
+                    <p>World-class university focusing on science, engineering, medicine and business.</p>
+                    <a href="https://www.imperial.ac.uk/" class="university-link" target="_blank">Learn More →</a>
+                </div>
+
+                <div class="university-card">
+                    <h4>King's College London</h4>
+                    <p class="university-location">📍 London, England</p>
+                    <p>One of England's oldest and most prestigious universities.</p>
+                    <a href="https://www.kcl.ac.uk/" class="university-link" target="_blank">Learn More →</a>
+                </div>
+
+                <div class="university-card">
+                    <h4>London School of Economics (LSE)</h4>
+                    <p class="university-location">📍 London, England</p>
+                    <p>Leading social science institution with global reputation.</p>
+                    <a href="https://www.lse.ac.uk/" class="university-link" target="_blank">Learn More →</a>
+                </div>
+
+                <div class="university-card">
+                    <h4>University of Edinburgh</h4>
+                    <p class="university-location">📍 Edinburgh, Scotland</p>
+                    <p>One of Scotland's ancient universities with world-leading research.</p>
+                    <a href="https://www.ed.ac.uk/" class="university-link" target="_blank">Learn More →</a>
+                </div>
+
+                <div class="university-card">
+                    <h4>University of Manchester</h4>
+                    <p class="university-location">📍 Manchester, England</p>
+                    <p>Major research university with a proud history of achievement.</p>
+                    <a href="https://www.manchester.ac.uk/" class="university-link" target="_blank">Learn More →</a>
+                </div>
+
+                <div class="university-card">
+                    <h4>University of Bristol</h4>
+                    <p class="university-location">📍 Bristol, England</p>
+                    <p>Renowned for research excellence and innovative teaching.</p>
+                    <a href="https://www.bristol.ac.uk/" class="university-link" target="_blank">Learn More →</a>
+                </div>
+
+                <div class="university-card">
+                    <h4>University of Warwick</h4>
+                    <p class="university-location">📍 Coventry, England</p>
+                    <p>Young university with a reputation for academic and research excellence.</p>
+                    <a href="https://warwick.ac.uk/" class="university-link" target="_blank">Learn More →</a>
+                </div>
+
+                <div class="university-card">
+                    <h4>Newcastle University</h4>
+                    <p class="university-location">📍 Newcastle upon Tyne, England</p>
+                    <p>A Russell Group university with excellent research facilities.</p>
+                    <a href="https://www.ncl.ac.uk/" class="university-link" target="_blank">Learn More →</a>
+                </div>
+
+                <div class="university-card">
+                    <h4>Cardiff University</h4>
+                    <p class="university-location">📍 Cardiff, Wales</p>
+                    <p>Wales' leading university with world-class research facilities.</p>
+                    <a href="https://www.cardiff.ac.uk/" class="university-link" target="_blank">Learn More →</a>
+                </div>
+
+                <div class="university-card">
+                    <h4>University of Sheffield</h4>
+                    <p class="university-location">📍 Sheffield, England</p>
+                    <p>Russell Group university known for engineering and innovation.</p>
+                    <a href="https://www.sheffield.ac.uk/" class="university-link" target="_blank">Learn More →</a>
+                </div>
+
+                <div class="university-card">
+                    <h4>University of Nottingham</h4>
+                    <p class="university-location">📍 Nottingham, England</p>
+                    <p>Global university with campuses in UK, China and Malaysia.</p>
+                    <a href="https://www.nottingham.ac.uk/" class="university-link" target="_blank">Learn More →</a>
+                </div>
+
+                <div class="university-card">
+                    <h4>Queen's University Belfast</h4>
+                    <p class="university-location">📍 Belfast, Northern Ireland</p>
+                    <p>Northern Ireland's leading university and member of the Russell Group.</p>
+                    <a href="https://www.qub.ac.uk/" class="university-link" target="_blank">Learn More →</a>
+                </div>
+
+                <div class="university-card">
+                    <h4>University of Exeter</h4>
+                    <p class="university-location">📍 Exeter, England</p>
+                    <p>Russell Group member known for research excellence and beautiful campuses.</p>
+                    <a href="https://www.exeter.ac.uk/" class="university-link" target="_blank">Learn More →</a>
+                </div>
+
+                <div class="university-card">
+                    <h4>University of Birmingham</h4>
+                    <p class="university-location">📍 Birmingham, England</p>
+                    <p>First English civic university and member of the Russell Group.</p>
+                    <a href="https://www.birmingham.ac.uk/" class="university-link" target="_blank">Learn More →</a>
+                </div>
+
+                <div class="university-card">
+                    <h4>Swansea University</h4>
+                    <p class="university-location">📍 Swansea, Wales</p>
+                    <p>Research-led university with stunning coastal location.</p>
+                    <a href="https://www.swansea.ac.uk/" class="university-link" target="_blank">Learn More →</a>
+                </div>
+
+                <div class="university-card">
+                    <h4>Coventry University</h4>
+                    <p class="university-location">📍 Coventry, England</p>
+                    <p>Modern university with strong industry connections and employability focus.</p>
+                    <a href="https://www.coventry.ac.uk/" class="university-link" target="_blank">Learn More →</a>
+                </div>
+
+                <div class="university-card">
+                    <h4>Aston University</h4>
+                    <p class="university-location">📍 Birmingham, England</p>
+                    <p>Business-focused university with excellent graduate employment rates.</p>
+                    <a href="https://www.aston.ac.uk/" class="university-link" target="_blank">Learn More →</a>
+                </div>
+
+                <div class="university-card">
+                    <h4>Manchester Metropolitan University</h4>
+                    <p class="university-location">📍 Manchester, England</p>
+                    <p>Large modern university with diverse programs and strong industry links.</p>
+                    <a href="https://www.mmu.ac.uk/" class="university-link" target="_blank">Learn More →</a>
+                </div>
+
+                <div class="university-card">
+                    <h4>University of the West of England</h4>
+                    <p class="university-location">📍 Bristol, England</p>
+                    <p>Professional and practice-oriented education with strong career focus.</p>
+                    <a href="https://www.uwe.ac.uk/" class="university-link" target="_blank">Learn More →</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Europe Universities -->
+        <div class="university-section" id="europe-universities">
+            <button class="back-button" onclick="showCountries()">← Back to Countries</button>
+            <h2 class="country-title">Universities in Europe</h2>
+            <p class="country-description">Discover top European universities offering quality education in diverse
+                cultural settings.</p>
+
+            <div class="search-container">
+                <input type="text" class="search-box" placeholder="Search universities..."
+                    onkeyup="filterUniversities()">
+                <span class="search-icon">🔍</span>
+            </div>
+
+            <div class="universities-grid">
+                <!-- Netherlands -->
+                <div class="university-card">
+                    <h4>University of Amsterdam</h4>
+                    <p class="university-location">📍 Amsterdam, Netherlands</p>
+                    <p>Leading research university with diverse international programs.</p>
+                    <a href="https://www.uva.nl/en" class="university-link" target="_blank">Learn More →</a>
+                </div>
+
+                <div class="university-card">
+                    <h4>Delft University of Technology</h4>
+                    <p class="university-location">📍 Delft, Netherlands</p>
+                    <p>Europe's premier technical university for engineering and design.</p>
+                    <a href="https://www.tudelft.nl/en/" class="university-link" target="_blank">Learn More →</a>
+                </div>
+
+                <div class="university-card">
+                    <h4>Eindhoven University of Technology</h4>
+                    <p class="university-location">📍 Eindhoven, Netherlands</p>
+                    <p>Technology-focused university with strong industry partnerships.</p>
+                    <a href="https://www.tue.nl/en/" class="university-link" target="_blank">Learn More →</a>
+                </div>
+
+                <div class="university-card">
+                    <h4>Utrecht University</h4>
+                    <p class="university-location">📍 Utrecht, Netherlands</p>
+                    <p>One of Europe's oldest and most prestigious universities.</p>
+                    <a href="https://www.uu.nl/en" class="university-link" target="_blank">Learn More →</a>
+                </div>
+
+                <div class="university-card">
+                    <h4>Leiden University</h4>
+                    <p class="university-location">📍 Leiden, Netherlands</p>
+                    <p>The Netherlands' oldest university, founded in 1575.</p>
+                    <a href="https://www.universiteitleiden.nl/en" class="university-link" target="_blank">Learn More
+                        →</a>
+                </div>
+
+                <div class="university-card">
+                    <h4>Erasmus University Rotterdam</h4>
+                    <p class="university-location">📍 Rotterdam, Netherlands</p>
+                    <p>Renowned for economics, business, and social sciences.</p>
+                    <a href="https://www.eur.nl/en" class="university-link" target="_blank">Learn More →</a>
+                </div>
+
+                <!-- Germany -->
+                <div class="university-card">
+                    <h4>Technical University of Munich</h4>
+                    <p class="university-location">📍 Munich, Germany</p>
+                    <p>Excellence in engineering and applied sciences.</p>
+                    <a href="https://www.tum.de/en/" class="university-link" target="_blank">Learn More →</a>
+                </div>
+
+                <div class="university-card">
+                    <h4>Ludwig Maximilian University (LMU)</h4>
+                    <p class="university-location">📍 Munich, Germany</p>
+                    <p>One of Germany's leading research universities.</p>
+                    <a href="https://www.lmu.de/en/" class="university-link" target="_blank">Learn More →</a>
+                </div>
+
+                <div class="university-card">
+                    <h4>RWTH Aachen University</h4>
+                    <p class="university-location">📍 Aachen, Germany</p>
+                    <p>Germany's largest technical university with global reputation.</p>
+                    <a href="https://www.rwth-aachen.de/go/id/a/?lidx=1" class="university-link" target="_blank">Learn
+                        More →</a>
+                </div>
+
+                <div class="university-card">
+                    <h4>Heidelberg University</h4>
+                    <p class="university-location">📍 Heidelberg, Germany</p>
+                    <p>Germany's oldest university with rich academic tradition.</p>
+                    <a href="https://www.uni-heidelberg.de/en" class="university-link" target="_blank">Learn More →</a>
+                </div>
+
+                <div class="university-card">
+                    <h4>University of Mannheim</h4>
+                    <p class="university-location">📍 Mannheim, Germany</p>
+                    <p>Germany's top business school with strong economics programs.</p>
+                    <a href="https://www.uni-mannheim.de/en/" class="university-link" target="_blank">Learn More →</a>
+                </div>
+
+                <div class="university-card">
+                    <h4>Humboldt University of Berlin</h4>
+                    <p class="university-location">📍 Berlin, Germany</p>
+                    <p>Historic university known for research and innovation.</p>
+                    <a href="https://www.hu-berlin.de/en" class="university-link" target="_blank">Learn More →</a>
+                </div>
+
+                <!-- France -->
+                <div class="university-card">
+                    <h4>Sorbonne University</h4>
+                    <p class="university-location">📍 Paris, France</p>
+                    <p>Historic institution with world-class programs.</p>
+                    <a href="https://www.sorbonne-universite.fr/en" class="university-link" target="_blank">Learn More
+                        →</a>
+                </div>
+
+                <div class="university-card">
+                    <h4>Université Paris-Saclay</h4>
+                    <p class="university-location">📍 Paris, France</p>
+                    <p>Leading French research university with strong STEM programs.</p>
+                    <a href="https://www.universite-paris-saclay.fr/en" class="university-link" target="_blank">Learn
+                        More →</a>
+                </div>
+
+                <div class="university-card">
+                    <h4>Sciences Po</h4>
+                    <p class="university-location">📍 Paris, France</p>
+                    <p>Premier institute for political science and international affairs.</p>
+                    <a href="https://www.sciencespo.fr/en" class="university-link" target="_blank">Learn More →</a>
+                </div>
+
+                <div class="university-card">
+                    <h4>HEC Paris</h4>
+                    <p class="university-location">📍 Paris, France</p>
+                    <p>Europe's top business school with global recognition.</p>
+                    <a href="https://www.hec.edu/en" class="university-link" target="_blank">Learn More →</a>
+                </div>
+
+                <div class="university-card">
+                    <h4>ESSEC Business School</h4>
+                    <p class="university-location">📍 Paris, France</p>
+                    <p>Leading business school with innovative programs.</p>
+                    <a href="https://www.essec.edu/en/" class="university-link" target="_blank">Learn More →</a>
+                </div>
+
+                <!-- Spain -->
+                <div class="university-card">
+                    <h4>University of Barcelona</h4>
+                    <p class="university-location">📍 Barcelona, Spain</p>
+                    <p>Spain's top public university with comprehensive programs.</p>
+                    <a href="https://www.ub.edu/web/portal/en/" class="university-link" target="_blank">Learn More →</a>
+                </div>
+
+                <div class="university-card">
+                    <h4>Autonomous University of Barcelona</h4>
+                    <p class="university-location">📍 Barcelona, Spain</p>
+                    <p>Research-intensive university with strong international presence.</p>
+                    <a href="https://www.uab.cat/en/" class="university-link" target="_blank">Learn More →</a>
+                </div>
+
+                <div class="university-card">
+                    <h4>Complutense University of Madrid</h4>
+                    <p class="university-location">📍 Madrid, Spain</p>
+                    <p>One of the oldest universities in the world, founded in 1293.</p>
+                    <a href="https://www.ucm.es/english" class="university-link" target="_blank">Learn More →</a>
+                </div>
+
+                <div class="university-card">
+                    <h4>IE University</h4>
+                    <p class="university-location">📍 Madrid, Spain</p>
+                    <p>Innovative private university with global business focus.</p>
+                    <a href="https://www.ie.edu/university/" class="university-link" target="_blank">Learn More →</a>
+                </div>
+
+                <!-- Italy -->
+                <div class="university-card">
+                    <h4>University of Bologna</h4>
+                    <p class="university-location">📍 Bologna, Italy</p>
+                    <p>The world's oldest university, founded in 1088.</p>
+                    <a href="https://www.unibo.it/en" class="university-link" target="_blank">Learn More →</a>
+                </div>
+
+                <div class="university-card">
+                    <h4>Sapienza University of Rome</h4>
+                    <p class="university-location">📍 Rome, Italy</p>
+                    <p>One of Europe's largest universities with rich history.</p>
+                    <a href="https://www.uniroma1.it/en" class="university-link" target="_blank">Learn More →</a>
+                </div>
+
+                <div class="university-card">
+                    <h4>Politecnico di Milano</h4>
+                    <p class="university-location">📍 Milan, Italy</p>
+                    <p>Italy's premier technical university for engineering and design.</p>
+                    <a href="https://www.polimi.it/en" class="university-link" target="_blank">Learn More →</a>
+                </div>
+
+                <div class="university-card">
+                    <h4>Bocconi University</h4>
+                    <p class="university-location">📍 Milan, Italy</p>
+                    <p>Leading university for economics, management and finance.</p>
+                    <a href="https://www.unibocconi.eu/wps/wcm/connect/bocconi/sitopubblico_en/navigation+tree/home"
+                        class="university-link" target="_blank">Learn More →</a>
+                </div>
+
+                <!-- Switzerland -->
+                <div class="university-card">
+                    <h4>ETH Zurich</h4>
+                    <p class="university-location">📍 Zurich, Switzerland</p>
+                    <p>Leading university for science, technology, and engineering in Europe.</p>
+                    <a href="https://ethz.ch/en.html" class="university-link" target="_blank">Learn More →</a>
+                </div>
+
+                <div class="university-card">
+                    <h4>EPFL Lausanne</h4>
+                    <p class="university-location">📍 Lausanne, Switzerland</p>
+                    <p>Switzerland's leading tech university with cutting-edge research.</p>
+                    <a href="https://www.epfl.ch/en/" class="university-link" target="_blank">Learn More →</a>
+                </div>
+
+                <div class="university-card">
+                    <h4>University of Geneva</h4>
+                    <p class="university-location">📍 Geneva, Switzerland</p>
+                    <p>International university with strong research programs.</p>
+                    <a href="https://www.unige.ch/en/" class="university-link" target="_blank">Learn More →</a>
+                </div>
+
+                <!-- Sweden -->
+                <div class="university-card">
+                    <h4>Lund University</h4>
+                    <p class="university-location">📍 Lund, Sweden</p>
+                    <p>One of Northern Europe's oldest and most prestigious universities.</p>
+                    <a href="https://www.lunduniversity.lu.se/" class="university-link" target="_blank">Learn More →</a>
+                </div>
+
+                <div class="university-card">
+                    <h4>Uppsala University</h4>
+                    <p class="university-location">📍 Uppsala, Sweden</p>
+                    <p>Scandinavia's first university, founded in 1477.</p>
+                    <a href="https://www.uu.se/en" class="university-link" target="_blank">Learn More →</a>
+                </div>
+
+                <div class="university-card">
+                    <h4>KTH Royal Institute of Technology</h4>
+                    <p class="university-location">📍 Stockholm, Sweden</p>
+                    <p>Sweden's largest technical university with innovation focus.</p>
+                    <a href="https://www.kth.se/en" class="university-link" target="_blank">Learn More →</a>
+                </div>
+
+                <div class="university-card">
+                    <h4>Stockholm University</h4>
+                    <p class="university-location">📍 Stockholm, Sweden</p>
+                    <p>Major research university in the heart of Stockholm.</p>
+                    <a href="https://www.su.se/english/" class="university-link" target="_blank">Learn More →</a>
+                </div>
+
+                <!-- Finland -->
+                <div class="university-card">
+                    <h4>University of Helsinki</h4>
+                    <p class="university-location">📍 Helsinki, Finland</p>
+                    <p>Finland's oldest and largest university with strong research.</p>
+                    <a href="https://www.helsinki.fi/en" class="university-link" target="_blank">Learn More →</a>
+                </div>
+
+                <div class="university-card">
+                    <h4>Aalto University</h4>
+                    <p class="university-location">📍 Helsinki, Finland</p>
+                    <p>Innovative university combining technology, business and art.</p>
+                    <a href="https://www.aalto.fi/en" class="university-link" target="_blank">Learn More →</a>
+                </div>
+
+                <!-- Austria -->
+                <div class="university-card">
+                    <h4>University of Vienna</h4>
+                    <p class="university-location">📍 Vienna, Austria</p>
+                    <p>One of the oldest universities in Europe, founded in 1365.</p>
+                    <a href="https://www.univie.ac.at/en/" class="university-link" target="_blank">Learn More →</a>
+                </div>
+
+                <div class="university-card">
+                    <h4>TU Wien</h4>
+                    <p class="university-location">📍 Vienna, Austria</p>
+                    <p>Austria's largest technical university with strong research focus.</p>
+                    <a href="https://www.tuwien.at/en/" class="university-link" target="_blank">Learn More →</a>
+                </div>
+
+                <!-- Hungary -->
+                <div class="university-card">
+                    <h4>Eötvös Loránd University (ELTE)</h4>
+                    <p class="university-location">📍 Budapest, Hungary</p>
+                    <p>Hungary's oldest and most prestigious university.</p>
+                    <a href="https://www.elte.hu/en/" class="university-link" target="_blank">Learn More →</a>
+                </div>
+
+                <div class="university-card">
+                    <h4>University of Szeged</h4>
+                    <p class="university-location">📍 Szeged, Hungary</p>
+                    <p>Leading Hungarian university with strong medical programs.</p>
+                    <a href="https://u-szeged.hu/english" class="university-link" target="_blank">Learn More →</a>
+                </div>
+
+                <!-- Poland -->
+                <div class="university-card">
+                    <h4>University of Warsaw</h4>
+                    <p class="university-location">📍 Warsaw, Poland</p>
+                    <p>Poland's largest and most prestigious university.</p>
+                    <a href="https://en.uw.edu.pl/" class="university-link" target="_blank">Learn More →</a>
+                </div>
+
+                <div class="university-card">
+                    <h4>Jagiellonian University</h4>
+                    <p class="university-location">📍 Kraków, Poland</p>
+                    <p>Poland's oldest university, founded in 1364.</p>
+                    <a href="https://en.uj.edu.pl/" class="university-link" target="_blank">Learn More →</a>
+                </div>
+
+                <!-- Czech Republic -->
+                <div class="university-card">
+                    <h4>Charles University</h4>
+                    <p class="university-location">📍 Prague, Czech Republic</p>
+                    <p>Central Europe's oldest university, founded in 1348.</p>
+                    <a href="https://cuni.cz/UKEN-1.html" class="university-link" target="_blank">Learn More →</a>
+                </div>
+
+                <div class="university-card">
+                    <h4>Czech Technical University</h4>
+                    <p class="university-location">📍 Prague, Czech Republic</p>
+                    <p>Leading technical university in Central Europe.</p>
+                    <a href="https://www.cvut.cz/en" class="university-link" target="_blank">Learn More →</a>
+                </div>
+
+                <!-- Portugal -->
+                <div class="university-card">
+                    <h4>University of Lisbon</h4>
+                    <p class="university-location">📍 Lisbon, Portugal</p>
+                    <p>Portugal's largest and most prestigious university.</p>
+                    <a href="https://www.ulisboa.pt/en" class="university-link" target="_blank">Learn More →</a>
+                </div>
+
+                <div class="university-card">
+                    <h4>University of Porto</h4>
+                    <p class="university-location">📍 Porto, Portugal</p>
+                    <p>Leading research university in northern Portugal.</p>
+                    <a href="https://sigarra.up.pt/up/en/" class="university-link" target="_blank">Learn More →</a>
+                </div>
+
+                <!-- Ireland -->
+                <div class="university-card">
+                    <h4>Trinity College Dublin</h4>
+                    <p class="university-location">📍 Dublin, Ireland</p>
+                    <p>Ireland's oldest and most prestigious university.</p>
+                    <a href="https://www.tcd.ie/" class="university-link" target="_blank">Learn More →</a>
+                </div>
+
+                <div class="university-card">
+                    <h4>University College Dublin</h4>
+                    <p class="university-location">📍 Dublin, Ireland</p>
+                    <p>Leading research university with diverse programs.</p>
+                    <a href="https://www.ucd.ie/" class="university-link" target="_blank">Learn More →</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ireland Universities -->
+        <div class="university-section" id="ireland-universities">
+            <button class="back-button" onclick="showCountries()">← Back to Countries</button>
+            <h2 class="country-title">Universities in Ireland</h2>
+            <p class="country-description">Study at Ireland's prestigious universities, combining tradition with
+                innovation.</p>
+
+            <div class="search-container">
+                <input type="text" class="search-box" placeholder="Search universities..."
+                    onkeyup="filterUniversities()">
+                <span class="search-icon">🔍</span>
+            </div>
+
+            <div class="universities-grid">
+                <div class="university-card">
+                    <h4>Trinity College Dublin (TCD)</h4>
+                    <p class="university-location">📍 Dublin</p>
+                    <p>Ireland's oldest and most prestigious university, founded in 1592.</p>
+                    <a href="https://www.tcd.ie/" class="university-link" target="_blank">Learn More →</a>
+                </div>
+
+                <div class="university-card">
+                    <h4>University College Dublin (UCD)</h4>
+                    <p class="university-location">📍 Dublin</p>
+                    <p>Leading research university with diverse programs and global reputation.</p>
+                    <a href="https://www.ucd.ie/" class="university-link" target="_blank">Learn More →</a>
+                </div>
+
+                <div class="university-card">
+                    <h4>University College Cork (UCC)</h4>
+                    <p class="university-location">📍 Cork</p>
+                    <p>Research-intensive university with strong science and engineering programs.</p>
+                    <a href="https://www.ucc.ie/" class="university-link" target="_blank">Learn More →</a>
+                </div>
+
+                <div class="university-card">
+                    <h4>University of Galway</h4>
+                    <p class="university-location">📍 Galway</p>
+                    <p>Known for innovation, research excellence and vibrant campus life.</p>
+                    <a href="https://www.universityofgalway.ie/" class="university-link" target="_blank">Learn More
+                        →</a>
+                </div>
+
+                <div class="university-card">
+                    <h4>University of Limerick (UL)</h4>
+                    <p class="university-location">📍 Limerick</p>
+                    <p>Dynamic university with strong focus on employability and enterprise.</p>
+                    <a href="https://www.ul.ie/" class="university-link" target="_blank">Learn More →</a>
+                </div>
+
+                <div class="university-card">
+                    <h4>Dublin City University (DCU)</h4>
+                    <p class="university-location">📍 Dublin</p>
+                    <p>Modern university known for innovation and strong industry connections.</p>
+                    <a href="https://www.dcu.ie/" class="university-link" target="_blank">Learn More →</a>
+                </div>
+
+                <div class="university-card">
+                    <h4>Maynooth University</h4>
+                    <p class="university-location">📍 Maynooth, Co. Kildare</p>
+                    <p>Ireland's fastest-growing university with excellent research programs.</p>
+                    <a href="https://www.maynoothuniversity.ie/" class="university-link" target="_blank">Learn More
+                        →</a>
+                </div>
+
+                <div class="university-card">
+                    <h4>Technological University Dublin</h4>
+                    <p class="university-location">📍 Dublin</p>
+                    <p>Ireland's first technological university with practical, industry-focused programs.</p>
+                    <a href="https://www.tudublin.ie/" class="university-link" target="_blank">Learn More →</a>
+                </div>
+
+                <div class="university-card">
+                    <h4>South East Technological University</h4>
+                    <p class="university-location">📍 Waterford & Carlow</p>
+                    <p>Modern technological university serving the south-east region.</p>
+                    <a href="https://www.setu.ie/" class="university-link" target="_blank">Learn More →</a>
+                </div>
+
+                <div class="university-card">
+                    <h4>Atlantic Technological University</h4>
+                    <p class="university-location">📍 Galway, Mayo & Sligo</p>
+                    <p>Multi-campus technological university across Ireland's west coast.</p>
+                    <a href="https://www.atu.ie/" class="university-link" target="_blank">Learn More →</a>
+                </div>
+
+                <div class="university-card">
+                    <h4>Royal College of Surgeons (RCSI)</h4>
+                    <p class="university-location">📍 Dublin</p>
+                    <p>World-leading medical and health sciences institution.</p>
+                    <a href="https://www.rcsi.com/" class="university-link" target="_blank">Learn More →</a>
+                </div>
+
+                <div class="university-card">
+                    <h4>Griffith College</h4>
+                    <p class="university-location">📍 Dublin</p>
+                    <p>Ireland's largest independent college with diverse programs.</p>
+                    <a href="https://www.griffith.ie/" class="university-link" target="_blank">Learn More →</a>
+                </div>
+
+                <div class="university-card">
+                    <h4>National College of Ireland</h4>
+                    <p class="university-location">📍 Dublin</p>
+                    <p>Specialist college focused on business, computing and psychology.</p>
+                    <a href="https://www.ncirl.ie/" class="university-link" target="_blank">Learn More →</a>
+                </div>
+
+                <div class="university-card">
+                    <h4>Dublin Business School</h4>
+                    <p class="university-location">📍 Dublin</p>
+                    <p>Ireland's largest independent business school with practical programs.</p>
+                    <a href="https://www.dbs.ie/" class="university-link" target="_blank">Learn More →</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Malaysia Universities -->
+        <div class="university-section" id="malaysia-universities">
+            <button class="back-button" onclick="showCountries()">← Back to Countries</button>
+            <h2 class="country-title">Universities in Malaysia</h2>
+            <p class="country-description">Experience quality education in Malaysia's vibrant, multicultural
+                environment.</p>
+
+            <div class="search-container">
+                <input type="text" class="search-box" placeholder="Search universities..."
+                    onkeyup="filterUniversities()">
+                <span class="search-icon">🔍</span>
+            </div>
+
+            <div class="universities-grid">
+                <!-- International Branch Campuses -->
+                <div class="university-card">
+                    <h4>Monash University Malaysia</h4>
+                    <p class="university-location">📍 Subang Jaya, Selangor</p>
+                    <p>Australian university's premier Malaysian campus with global recognition.</p>
+                    <a href="https://www.monash.edu.my/" class="university-link" target="_blank">Learn More →</a>
+                </div>
+
+                <div class="university-card">
+                    <h4>University of Nottingham Malaysia</h4>
+                    <p class="university-location">📍 Semenyih, Selangor</p>
+                    <p>UK's first branch campus in Malaysia, offering British qualifications.</p>
+                    <a href="https://www.nottingham.edu.my/" class="university-link" target="_blank">Learn More →</a>
+                </div>
+
+                <div class="university-card">
+                    <h4>Heriot-Watt University Malaysia</h4>
+                    <p class="university-location">📍 Putrajaya</p>
+                    <p>Scottish university campus specializing in engineering and business.</p>
+                    <a href="https://www.hw.ac.uk/malaysia/" class="university-link" target="_blank">Learn More →</a>
+                </div>
+
+                <div class="university-card">
+                    <h4>University of Southampton Malaysia</h4>
+                    <p class="university-location">📍 Iskandar Puteri, Johor</p>
+                    <p>UK's Russell Group university offering engineering programs in Malaysia.</p>
+                    <a href="https://www.southampton.ac.uk/my/" class="university-link" target="_blank">Learn More →</a>
+                </div>
+
+                <div class="university-card">
+                    <h4>University of Reading Malaysia</h4>
+                    <p class="university-location">📍 Iskandar Puteri, Johor</p>
+                    <p>British university focusing on built environment and property studies.</p>
+                    <a href="https://www.reading.edu.my/" class="university-link" target="_blank">Learn More →</a>
+                </div>
+
+                <!-- Top Private Universities -->
+                <div class="university-card">
+                    <h4>Taylor's University</h4>
+                    <p class="university-location">📍 Subang Jaya, Selangor</p>
+                    <p>Malaysia's leading private university with strong industry partnerships.</p>
+                    <a href="https://university.taylors.edu.my/" class="university-link" target="_blank">Learn More
+                        →</a>
+                </div>
+
+                <div class="university-card">
+                    <h4>Sunway University</h4>
+                    <p class="university-location">📍 Bandar Sunway, Selangor</p>
+                    <p>Premier university with world-class facilities and global partnerships.</p>
+                    <a href="https://university.sunway.edu.my/" class="university-link" target="_blank">Learn More →</a>
+                </div>
+
+                <div class="university-card">
+                    <h4>Asia Pacific University (APU)</h4>
+                    <p class="university-location">📍 Kuala Lumpur</p>
+                    <p>Technology-focused university with award-winning programs.</p>
+                    <a href="https://www.apu.edu.my/" class="university-link" target="_blank">Learn More →</a>
+                </div>
+
+                <div class="university-card">
+                    <h4>INTI International University</h4>
+                    <p class="university-location">📍 Nilai, Negeri Sembilan</p>
+                    <p>Part of Laureate Network with strong international partnerships.</p>
+                    <a href="https://newinti.edu.my/" class="university-link" target="_blank">Learn More →</a>
+                </div>
+
+                <div class="university-card">
+                    <h4>UCSI University</h4>
+                    <p class="university-location">📍 Kuala Lumpur</p>
+                    <p>Renowned for music, hospitality and business programs.</p>
+                    <a href="https://www.ucsiuniversity.edu.my/" class="university-link" target="_blank">Learn More
+                        →</a>
+                </div>
+
+                <div class="university-card">
+                    <h4>SEGi University</h4>
+                    <p class="university-location">📍 Kota Damansara, Selangor</p>
+                    <p>Comprehensive programs in health sciences, business and engineering.</p>
+                    <a href="https://www.segi.edu.my/" class="university-link" target="_blank">Learn More →</a>
+                </div>
+
+                <div class="university-card">
+                    <h4>HELP University</h4>
+                    <p class="university-location">📍 Kuala Lumpur</p>
+                    <p>Strong focus on liberal arts, psychology and business education.</p>
+                    <a href="https://www.help.edu.my/" class="university-link" target="_blank">Learn More →</a>
+                </div>
+
+                <div class="university-card">
+                    <h4>MAHSA University</h4>
+                    <p class="university-location">📍 Bandar Saujana Putra, Selangor</p>
+                    <p>Specialist in health sciences, medicine and nursing programs.</p>
+                    <a href="https://mahsa.edu.my/" class="university-link" target="_blank">Learn More →</a>
+                </div>
+
+                <div class="university-card">
+                    <h4>Multimedia University (MMU)</h4>
+                    <p class="university-location">📍 Cyberjaya & Melaka</p>
+                    <p>Malaysia's first private university, pioneer in ICT education.</p>
+                    <a href="https://www.mmu.edu.my/" class="university-link" target="_blank">Learn More →</a>
+                </div>
+
+                <div class="university-card">
+                    <h4>Infrastructure University Kuala Lumpur</h4>
+                    <p class="university-location">📍 Kajang, Selangor</p>
+                    <p>Specialized in engineering, architecture and infrastructure studies.</p>
+                    <a href="https://www.iukl.edu.my/" class="university-link" target="_blank">Learn More →</a>
+                </div>
+
+                <div class="university-card">
+                    <h4>Management and Science University</h4>
+                    <p class="university-location">📍 Shah Alam, Selangor</p>
+                    <p>Comprehensive programs in business, health and IT.</p>
+                    <a href="https://www.msu.edu.my/" class="university-link" target="_blank">Learn More →</a>
+                </div>
+
+                <div class="university-card">
+                    <h4>First City University College</h4>
+                    <p class="university-location">📍 Petaling Jaya, Selangor</p>
+                    <p>Focus on hospitality, business and creative industries.</p>
+                    <a href="https://www.firstcity.edu.my/" class="university-link" target="_blank">Learn More →</a>
+                </div>
+
+                <div class="university-card">
+                    <h4>Berjaya University College</h4>
+                    <p class="university-location">📍 Kuala Lumpur</p>
+                    <p>Hospitality and tourism management specialist institution.</p>
+                    <a href="https://www.berjaya.edu.my/" class="university-link" target="_blank">Learn More →</a>
+                </div>
+
+                <div class="university-card">
+                    <h4>Limkokwing University</h4>
+                    <p class="university-location">📍 Cyberjaya, Selangor</p>
+                    <p>International university specializing in creative technology and design.</p>
+                    <a href="https://www.limkokwing.net/" class="university-link" target="_blank">Learn More →</a>
+                </div>
+
+                <div class="university-card">
+                    <h4>City University Malaysia</h4>
+                    <p class="university-location">📍 Petaling Jaya, Selangor</p>
+                    <p>Affordable quality education in business and technology.</p>
+                    <a href="https://www.city.edu.my/" class="university-link" target="_blank">Learn More →</a>
+                </div>
+
+                <div class="university-card">
+                    <h4>Quest International University</h4>
+                    <p class="university-location">📍 Ipoh, Perak</p>
+                    <p>Focus on medicine, pharmacy and health sciences.</p>
+                    <a href="https://www.qiu.edu.my/" class="university-link" target="_blank">Learn More →</a>
+                </div>
+
+                <div class="university-card">
+                    <h4>Raffles University Iskandar</h4>
+                    <p class="university-location">📍 Iskandar Puteri, Johor</p>
+                    <p>Design-focused university with creative industry programs.</p>
+                    <a href="https://www.raffles-university.edu.my/" class="university-link" target="_blank">Learn More
+                        →</a>
+                </div>
+
+                <div class="university-card">
+                    <h4>Geomatika University College</h4>
+                    <p class="university-location">📍 Kuala Lumpur</p>
+                    <p>Specialist in geospatial technology, surveying and land management.</p>
+                    <a href="https://www.geomatika.edu.my/" class="university-link" target="_blank">Learn More →</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Singapore Universities -->
+        <div class="university-section" id="singapore-universities">
+            <button class="back-button" onclick="showCountries()">← Back to Countries</button>
+            <h2 class="country-title">Universities in Singapore</h2>
+            <p class="country-description">Access world-leading education in Singapore's dynamic, innovative
+                environment.</p>
+
+            <div class="search-container">
+                <input type="text" class="search-box" placeholder="Search universities..."
+                    onkeyup="filterUniversities()">
+                <span class="search-icon">🔍</span>
+            </div>
+
+            <div class="universities-grid">
+                <!-- Autonomous Universities -->
+                <div class="university-card">
+                    <h4>National University of Singapore (NUS)</h4>
+                    <p class="university-location">📍 Singapore</p>
+                    <p>Asia's leading university with world-class programs and global recognition.</p>
+                    <a href="https://www.nus.edu.sg/" class="university-link" target="_blank">Learn More →</a>
+                </div>
+
+                <div class="university-card">
+                    <h4>Nanyang Technological University (NTU)</h4>
+                    <p class="university-location">📍 Singapore</p>
+                    <p>Young university ranked among the world's best for research and innovation.</p>
+                    <a href="https://www.ntu.edu.sg/" class="university-link" target="_blank">Learn More →</a>
+                </div>
+
+                <div class="university-card">
+                    <h4>Singapore Management University (SMU)</h4>
+                    <p class="university-location">📍 Singapore</p>
+                    <p>Premier institution for business, management and social sciences.</p>
+                    <a href="https://www.smu.edu.sg/" class="university-link" target="_blank">Learn More →</a>
+                </div>
+
+                <div class="university-card">
+                    <h4>Singapore University of Technology and Design</h4>
+                    <p class="university-location">📍 Singapore</p>
+                    <p>Innovative university focusing on technology, design and entrepreneurship.</p>
+                    <a href="https://www.sutd.edu.sg/" class="university-link" target="_blank">Learn More →</a>
+                </div>
+
+                <div class="university-card">
+                    <h4>Singapore Institute of Technology (SIT)</h4>
+                    <p class="university-location">📍 Singapore</p>
+                    <p>Applied learning university with strong industry integration.</p>
+                    <a href="https://www.singaporetech.edu.sg/" class="university-link" target="_blank">Learn More →</a>
+                </div>
+
+                <div class="university-card">
+                    <h4>Singapore University of Social Sciences</h4>
+                    <p class="university-location">📍 Singapore</p>
+                    <p>Lifelong learning university with flexible programs for working adults.</p>
+                    <a href="https://www.suss.edu.sg/" class="university-link" target="_blank">Learn More →</a>
+                </div>
+
+                <!-- International Institutions -->
+                <div class="university-card">
+                    <h4>INSEAD Asia Campus</h4>
+                    <p class="university-location">📍 Singapore</p>
+                    <p>World's leading graduate business school with global MBA programs.</p>
+                    <a href="https://www.insead.edu/campuses/asia" class="university-link" target="_blank">Learn More
+                        →</a>
+                </div>
+
+                <div class="university-card">
+                    <h4>James Cook University Singapore</h4>
+                    <p class="university-location">📍 Singapore</p>
+                    <p>Australian university campus offering world-class education in Singapore.</p>
+                    <a href="https://www.jcu.edu.sg/" class="university-link" target="_blank">Learn More →</a>
+                </div>
+
+                <div class="university-card">
+                    <h4>Curtin University Singapore</h4>
+                    <p class="university-location">📍 Singapore</p>
+                    <p>Australian university branch with strong business and IT programs.</p>
+                    <a href="https://www.curtin.edu.sg/" class="university-link" target="_blank">Learn More →</a>
+                </div>
+
+                <div class="university-card">
+                    <h4>Murdoch University Singapore</h4>
+                    <p class="university-location">📍 Singapore</p>
+                    <p>Australian university offering business, psychology and communication programs.</p>
+                    <a href="https://www.murdoch.edu.sg/" class="university-link" target="_blank">Learn More →</a>
+                </div>
+
+                <!-- Private Education Institutions -->
+                <div class="university-card">
+                    <h4>Kaplan Higher Education Singapore</h4>
+                    <p class="university-location">📍 Singapore</p>
+                    <p>Leading private education provider with international university partnerships.</p>
+                    <a href="https://www.kaplan.com.sg/" class="university-link" target="_blank">Learn More →</a>
+                </div>
+
+                <div class="university-card">
+                    <h4>PSB Academy</h4>
+                    <p class="university-location">📍 Singapore</p>
+                    <p>Award-winning private education institution with diverse international degrees.</p>
+                    <a href="https://www.psb-academy.edu.sg/" class="university-link" target="_blank">Learn More →</a>
+                </div>
+
+                <div class="university-card">
+                    <h4>Management Development Institute of Singapore</h4>
+                    <p class="university-location">📍 Singapore</p>
+                    <p>Established private institution with comprehensive programs and global partnerships.</p>
+                    <a href="https://www.mdis.edu.sg/" class="university-link" target="_blank">Learn More →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scholarship Section -->
+    <section id="scholarship">
+        <div class="section-header">
+            <h3>SCHOLARSHIPS</h3>
+            <h2>Scholarship Types</h2>
+        </div>
+
+        <!-- Scholarship Types Grid -->
+        <div class="scholarship-types-grid">
+            <div class="scholarship-type-card">
+                <div class="scholarship-icon">🎓</div>
+                <h4>University Scholarships</h4>
+                <p>Awarded by universities based on the student’s overall profile.
+                    <br><br>Typical value: <i>5%–50%</i> tuition fee reduction
+                </p>
+            </div>
+
+            <div class="scholarship-type-card">
+                <div class="scholarship-icon">⭐</div>
+                <h4>Merit Scholarships</h4>
+                <p>For students with strong academic results and consistent performance.
+                    <br><br>Typical value: <i>10%–50%</i> tuition fee reduction
+                </p>
+            </div>
+
+            <div class="scholarship-type-card">
+                <div class="scholarship-icon">📚</div>
+                <h4>Subject Scholarships</h4>
+                <p>Available for selected courses such as Business, Engineering, or IT.
+                    <br><br>Typical value: <i>10%–30%</i> tuition fee reduction
+                </p>
+            </div>
+
+            <div class="scholarship-type-card">
+                <div class="scholarship-icon">🌏</div>
+                <h4>Regional/ASEAN Scholarships</h4>
+                <p>Offered to students from ASEAN countries by certain universities.
+                    <br><br>Typical value: <i>5%–20%</i> tuition fee reduction
+                </p>
+            </div>
+
+            <div class="scholarship-type-card">
+                <div class="scholarship-icon">💰</div>
+                <h4>Early Payment / Tuition Discounts</h4>
+                <p>Fee reductions given for early confirmation or early tuition payment.
+                    <br><br>Typical value: <i>5%–10%</i> tuition fee reduction
+                </p>
+            </div>
+        </div>
+
+        <!-- Single CTA Button -->
+        <div style="text-align: center; margin-top: 3rem;">
+            <button class="cta-button" onclick="showScholarshipForm()">Check My Eligibility</button>
+        </div>
+
+
+    </section>
+
+    <!-- Scholarship Form (Hidden by default) -->
+    <div class="scholarship-form-wrapper" id="scholarshipFormWrapper">
+        <div class="scholarship-form-container">
+            <button class="form-close-btn" onclick="hideScholarshipForm()">×</button>
+            <h3>Scholarship Eligibility Check</h3>
+            <p class="form-subtitle">Fill out the form below to check your eligibility.<br>We will review your
+                profile and reach out with suitable options.</p>
+
+            <form action="https://api.web3forms.com/submit" method="POST" id="scholarshipForm">
+                <input type="hidden" name="access_key" value="cde7e556-fa65-41e1-a0f4-87a0ad3a1bd1">
+                <input type="hidden" name="subject" value="Scholarship Eligibility Check from MTI Website">
+
+                <div class="form-group">
+                    <label for="fullName">👤 Full Name *</label>
+                    <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="emailScholarship">✉️ Email *</label>
+                    <input type="email" id="emailScholarship" name="email" placeholder="Enter your email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="whatsapp">📱 WhatsApp Number *</label>
+                    <input type="tel" id="whatsapp" name="whatsapp" placeholder="Enter your WhatsApp number" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="qualification">🎓 Current Qualification *</label>
+                    <select id="qualification" name="qualification" required>
+                        <option value="">Select your qualification</option>
+                        <option value="SPM / IGCSE">SPM / IGCSE</option>
+                        <option value="A-Levels / STPM">A-Levels / STPM</option>
+                        <option value="Foundation">Foundation</option>
+                        <option value="Diploma">Diploma</option>
+                        <option value="Bachelor's Degree">Bachelor's Degree</option>
+                        <option value="Master's Degree">Master's Degree</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="scholarshipType">💡 Scholarship Type Interested *</label>
+                    <select id="scholarshipType" name="scholarshipType" required>
+                        <option value="">Select scholarship type</option>
+                        <option value="University Scholarships">University Scholarships</option>
+                        <option value="Merit Scholarships">Merit Scholarships</option>
+                        <option value="Subject Scholarships">Subject Scholarships</option>
+                        <option value="Regional/ASEAN Scholarships">Regional/ASEAN Scholarships</option>
+                        <option value="Early Payment / Tuition Discounts">Early Payment / Tuition Discounts</option>
+                        <option value="Any Available">Any Available</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="intendedCountry">🌍 Intended Country *</label>
+                    <select id="intendedCountry" name="intendedCountry" required>
+                        <option value="">Select intended country</option>
+                        <option value="United Kingdom">United Kingdom</option>
+                        <option value="Europe">Europe</option>
+                        <option value="Ireland">Ireland</option>
+                        <option value="Malaysia">Malaysia</option>
+                        <option value="Singapore">Singapore</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="submit-btn">Submit for Review →</button>
+            </form>
+
+            <p class="form-note">Your information is kept confidential and secure.</p>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="section-header">
+            <h3>GET IN TOUCH</h3>
+            <h2>Contact Us</h2>
+        </div>
+
+        <div class="contact-container">
+            <!-- Left Side - Contact Information -->
+            <div class="contact-info">
+
+                <div class="info-item">
+                    <div class="info-icon">📞</div>
+                    <div class="info-content">
+                        <a href="https://wa.me/+60176908241" target="_blank">+60 17-690 8241</a>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-icon">✉️</div>
+                    <div class="info-content">
+                        <a href="mailto:gladys.mtiedu@gmail.com">gladys.mtiedu@gmail.com</a>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-icon">📍</div>
+                    <div class="info-content">
+                        <a href="https://www.google.com/maps/place/13,+Jalan+Harmoni+Indah+1,+Taman+Harmoni+Indah,+43300+Seri+Kembangan,+Selangor/@3.025461,101.7305373,17z/data=!3m1!4b1!4m6!3m5!1s0x31cdcac8fca5b969:0x239694c43d80b849!8m2!3d3.0254556!4d101.7331122!16s%2Fg%2F11q2ng983m?entry=ttu&g_ep=EgoyMDI2MDExMy4wIKXMDSoASAFQAw%3D%3D"
+                            target="_blank">No.13-3A,
+                            Jalan Harmoni Indah 1<br>
+                            Taman Harmoni Indah, 43300 Seri Kembangan<br>
+                            Selangor, Malaysia</a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Right Side - Contact Form -->
+            <div class="contact-form-container">
+                <form action="https://api.web3forms.com/submit" method="POST" id="contactForm">
+                    <input type="hidden" name="access_key" value="cde7e556-fa65-41e1-a0f4-87a0ad3a1bd1">
+                    <input type="hidden" name="subject" value="New Inquiry from MTI Website">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName">First Name *</label>
+                            <input type="text" id="firstName" name="firstName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Last Name *</label>
+                            <input type="text" id="lastName" name="lastName" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Your Message *</label>
+                        <textarea id="message" name="message" required
+                            placeholder="Tell us about your education goals..."></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Send Message →</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Working Holiday Dialog -->
+    <div class="working-holiday-dialog" id="workingHolidayDialog">
+        <div class="working-holiday-content">
+            <button class="form-close-btn" onclick="hideWorkingHolidayDialog()">×</button>
+            <h3>Working Holiday Pathways</h3>
+
+            <p>A practical overseas gap year to gain work experience and clarity before committing to long-term study or
+                career paths.</p>
+
+            <h4>What is a Working Holiday?</h4>
+            <p>A government-approved visa that allows young adults to live and work overseas legally for a fixed period,
+                usually 6–12 months, depending on the country.</p>
+
+            <h4>Who is this for?</h4>
+            <ul>
+                <li>Students or fresh graduates</li>
+                <li>Those unsure what degree or career path to commit to</li>
+                <li>Individuals seeking overseas exposure before long-term study</li>
+                <li>Anyone planning future study or work pathways</li>
+                <li>Young adults aged 18–30 (or 35 for some countries)</li>
+            </ul>
+
+            <h4>Why Does It Matter?</h4>
+            <p>A structured gap year to gain real-world experience and clarity before committing to a full degree or
+                further studies.</p>
+
+            <h4>Popular Destinations</h4>
+            <ul>
+                <li><strong>Australia:</strong> High wages, wide range of short-term jobs</li>
+                <li><strong>United Kingdom:</strong> Work experience with access to Europe</li>
+                <li><strong>Ireland:</strong> English-speaking, strong job demand, EU exposure</li>
+                <li><strong>New Zealand:</strong> Seasonal work, balanced lifestyle</li>
+                <li><strong>Canada:</strong> Multicultural environment, structured work options</li>
+            </ul>
+
+            <p style="text-align: center; margin-top: 2rem;">
+                <a href="#contact" class="cta-button" onclick="hideWorkingHolidayDialog()">Get Started →</a>
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">MTI Global Education Resources</div>
+
+            <ul class="footer-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#destination">Destinations</a></li>
+                <li><a href="#scholarship">Scholarships</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+
+            <div class="footer-social">
+                <a href="https://www.facebook.com/share/1CkXYQyZwi/?mibextid=wwXIfr" target="_blank"
+                    class="social-icon">
+                    <img src="facebook.png" alt="Facebook">
+                </a>
+
+                <a href="https://www.tiktok.com/@mtiglobaleducation?_r=1&_t=ZS-92tpqTEBZPJ" target="_blank"
+                    class="social-icon">
+                    <img src="tik-tok.png" alt="Twitter">
+                </a>
+
+                <a href="https://xhslink.com/m/7y9Da4xyqUP" target="_blank" class="social-icon">
+                    <img src="xhs.png" alt="LinkedIn">
+                </a>
+
+                <a href="https://www.instagram.com/mtiglobaleducation?igsh=aTVucTNha2lmdGdw&utm_source=qr"
+                    class="social-icon" target="_blank">
+                    <img src="instagram.png" alt="Instagram">
+                </a>
+            </div>
+
+            <p class="footer-copyright">
+                Copyright © 2026 All rights reserved | This website is designed by MTI Education
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        function filterUniversities() {
+            const activeSection = document.querySelector('.university-section.active');
+            const input = activeSection.querySelector('.search-box');
+            const filter = input.value.toUpperCase();
+            const cards = activeSection.getElementsByClassName('university-card');
+
+            for (let i = 0; i < cards.length; i++) {
+                const universityName = cards[i].getElementsByTagName("h4")[0];
+                const locationName = cards[i].querySelector(".university-location");
+
+                if (universityName.innerHTML.toUpperCase().indexOf(filter) > -1 ||
+                    locationName.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                    cards[i].style.display = "";
+                } else {
+                    cards[i].style.display = "none";
+                }
+            }
+        }
+
+        function showUniversities(country) {
+            document.getElementById('countriesGrid').style.display = 'none';
+            document.querySelector('#destination .section-header').style.display = 'none';
+            const allSections = document.querySelectorAll('.university-section');
+            allSections.forEach(section => section.classList.remove('active'));
+            document.getElementById(country + '-universities').classList.add('active');
+            document.getElementById('destination').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function showCountries() {
+            document.getElementById('countriesGrid').style.display = 'grid';
+            document.querySelector('#destination .section-header').style.display = 'block';
+            const allSections = document.querySelectorAll('.university-section');
+            allSections.forEach(section => section.classList.remove('active'));
+            document.getElementById('destination').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // SCHOLARSHIP FORM JAVASCRIPT FUNCTIONS
+        function showScholarshipForm() {
+            document.getElementById('scholarshipFormWrapper').classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        }
+
+        function hideScholarshipForm() {
+            document.getElementById('scholarshipFormWrapper').classList.remove('active');
+            document.body.style.overflow = ''; // Restore scrolling
+        }
+
+        // Close form when clicking outside
+        document.getElementById('scholarshipFormWrapper')?.addEventListener('click', function (e) {
+            if (e.target === this) {
+                hideScholarshipForm();
+            }
+        });
+
+        // Close form with Escape key
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') {
+                hideScholarshipForm();
+            }
+        });
+
+        // Add to your existing JavaScript at the bottom
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+        const navOverlay = document.getElementById('navOverlay');
+
+        // Toggle menu
+        hamburger.addEventListener('click', function () {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+            navOverlay.classList.toggle('active');
+            document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+        });
+
+        // Close menu function
+        function closeMenu() {
+            hamburger.classList.remove('active');
+            navLinks.classList.remove('active');
+            navOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Close menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', closeMenu);
+        });
+
+        // Add this JavaScript to your existing <script> tag at the bottom
+
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                    // Optional: stop observing after animation
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections and animated elements
+        document.addEventListener('DOMContentLoaded', () => {
+            // Observe sections
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+
+            // Observe cards
+            const cards = document.querySelectorAll('.value-box, .service-card, .destination-card, .scholarship-type-card, .university-card, .info-item');
+            cards.forEach(card => {
+                observer.observe(card);
+            });
+
+            // Observe other elements
+            const elements = document.querySelectorAll('.about-text, .about-image, .about-text2, .section-header, .contact-info, .contact-form-container');
+            elements.forEach(el => {
+                observer.observe(el);
+            });
+        });
+
+        // WORKING HOLIDAY DIALOG FUNCTIONS
+        function showWorkingHolidayDialog(event) {
+            event.preventDefault(); // Prevent the link from navigating
+            document.getElementById('workingHolidayDialog').classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        }
+
+        function hideWorkingHolidayDialog() {
+            document.getElementById('workingHolidayDialog').classList.remove('active');
+            document.body.style.overflow = ''; // Restore scrolling
+        }
+
+        // Close dialog when clicking outside
+        document.getElementById('workingHolidayDialog')?.addEventListener('click', function (e) {
+            if (e.target === this) {
+                hideWorkingHolidayDialog();
+            }
+        });
+
+        // Update the existing Escape key handler to also close the Working Holiday dialog
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') {
+                hideScholarshipForm();
+                hideWorkingHolidayDialog();
+            }
+        });
+    </script>
+</body>
+
+</html>
