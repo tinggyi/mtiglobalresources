@@ -1896,7 +1896,8 @@
         @media (max-width: 768px) {
             .dual-color-card {
                 flex-direction: column;
-                margin-top: 4rem;
+                margin: 2rem auto;
+                max-width: 95%;
                 overflow: visible;
                 /* Ensure image doesn't get clipped */
             }
@@ -1908,22 +1909,46 @@
                 border-radius: 30px 30px 0 0;
             }
 
+            .blue-half::before {
+                font-size: 4rem;
+                top: 10px;
+                left: 20px;
+            }
+
             .white-half {
-                padding: 4rem 2rem 2rem 2rem;
+                padding: 1.5rem;
                 /* Adjust padding for mobile */
                 border-radius: 0 0 30px 30px;
+                margin-top: 280px;
+                /* Make space for the image above */
+            }
+
+            .white-half::after {
+                font-size: 4rem;
+                bottom: -10px;
+                right: 10px;
+            }
+
+            .white-half p {
+                font-size: 0.85rem;
+                line-height: 1.5;
             }
 
             .intersection-pic {
                 left: 50%;
-                top: 100px;
-                /* Adjust this value as needed */
-                transform: translate(-50%, 0);
-                width: 250px;
-                /* Smaller image on mobile */
-                height: 310px;
+                top: 80px;
+                transform: translateX(-50%);
+                width: 280px;
+                height: 340px;
             }
 
+            .profile-info h4 {
+                font-size: 1.1rem;
+            }
+
+            .profile-info span {
+                font-size: 0.85rem;
+            }
         }
 
         .section-header {
