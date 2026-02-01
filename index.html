@@ -237,6 +237,21 @@
             flex: 1 1 400px;
         }
 
+        .about h3 {
+            font-size: 0.9rem;
+            color: #ff6b35;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+        }
+
+        .about h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.3;
+            color: #333;
+        }
+
         .about-text h3 {
             font-size: 0.9rem;
             color: #ff6b35;
@@ -1554,7 +1569,8 @@
         .section-header,
         .contact-info,
         .contact-form-container,
-        .info-item {
+        .info-item,
+        .dual-color-card {
             opacity: 0;
             transform: translateY(30px);
             transition: opacity 0.6s ease, transform 0.6s ease;
@@ -1572,7 +1588,9 @@
         .section-header.animate,
         .contact-info.animate,
         .contact-form-container.animate,
-        .info-item.animate {
+        .info-item.animate,
+        .dual-color-card.animate,
+        .dual-color-card.animate1 {
             opacity: 1;
             transform: translateY(0);
         }
@@ -1662,6 +1680,15 @@
             transition-delay: 0.4s;
         }
 
+        /* Testimonial cards stagger */
+        .dual-color-card:nth-child(1).animate {
+            transition-delay: 0.1s;
+        }
+
+        .dual-color-card:nth-child(2).animate1 {
+            transition-delay: 0.8s;
+        }
+
         /* Keep keyframes for hero section */
         @keyframes fadeInUp {
             from {
@@ -1749,6 +1776,203 @@
                 padding: 1rem;
             }
         }
+
+        /* Dual Color Testimonial Card */
+        .dual-color-card {
+            position: relative;
+            /* REQUIRED: Makes the absolute image stick to this card */
+            display: flex;
+            max-width: 1100px;
+            margin: 0rem auto 0 5rem;
+            background: white;
+            border-radius: 30px;
+            overflow: visible;
+            /* CHANGED: Must be visible so the image shadow doesn't get cut off */
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+            min-height: 520px;
+            padding-top: 0%;
+        }
+
+
+        /* The Floating Image */
+        .intersection-pic {
+            position: absolute;
+            left: 24.4%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 340px;
+            height: 420px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            object-fit: cover;
+            z-index: 10;
+        }
+
+        /* LEFT SIDE: Blue */
+        .blue-half {
+            flex: 1.2;
+            position: relative;
+            background-color: rgb(7, 7, 76);
+            /* No content needed here if you just want the color bar */
+            border-top-left-radius: 30px;
+            border-bottom-left-radius: 30px;
+        }
+
+        .blue-half::before {
+            content: "\201C";
+            /* Left Double Quote */
+            position: absolute;
+            top: 20px;
+            /* 20px from the top edge */
+            left: 30px;
+            /* 30px from the left edge */
+            font-family: "Georgia", serif;
+            font-size: 8rem;
+            color: #ff6b35;
+            /* Orange looks great against Dark Blue */
+            /* Slightly more visible against the dark background */
+            line-height: 1;
+            pointer-events: none;
+        }
+
+        /* RIGHT SIDE: White */
+        .white-half {
+            position: relative;
+            /* CRITICAL: This makes the quotes stick to the corners of this box */
+            flex: 2.5;
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 3rem 3rem 3rem 6rem;
+            text-align: center;
+            border-top-right-radius: 30px;
+            border-bottom-right-radius: 30px;
+        }
+
+        /* 3. Bottom-Right Closing Quote */
+        .white-half::after {
+            content: "\201D";
+            /* Right Double Quote */
+            position: absolute;
+            bottom: -20px;
+            /* Adjust distance from bottom edge */
+            right: 20px;
+            /* Adjust distance from right edge */
+            font-family: "Georgia", serif;
+            font-size: 8rem;
+            color: #ff6b35;
+
+            line-height: 1;
+            pointer-events: none;
+        }
+
+        .white-half p {
+            font-size: 0.9rem;
+            color: #555;
+            line-height: 1.2;
+            margin-bottom: 2rem;
+            max-width: 550px;
+            font-style: oblique;
+        }
+
+        .profile-info h4 {
+            font-size: 1.3rem;
+            color: #333;
+            margin-bottom: 0.3rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .profile-info span {
+            color: #ff6b35;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .dual-color-card {
+                flex-direction: column;
+                margin-top: 4rem;
+                overflow: visible;
+                /* Ensure image doesn't get clipped */
+            }
+
+            .blue-half {
+                height: 60px;
+                /* Just a decorative top bar on mobile */
+                flex: none;
+                border-radius: 30px 30px 0 0;
+            }
+
+            .white-half {
+                padding: 4rem 2rem 2rem 2rem;
+                /* Adjust padding for mobile */
+                border-radius: 0 0 30px 30px;
+            }
+
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h3 {
+            font-size: 0.9rem;
+            color: #ff6b35;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: #333;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: #ff6b35;
+        }
+
+        .testimonial-header {
+            color: #ff6b35;
+            font-size: 0.9rem;
+            font-weight: 800;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+
+            margin-top: 0;
+
+            margin-bottom: 1.9rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        /* Optional: Adds a small decorative line under the title */
+        .testimonial-header::after {
+            content: '';
+            display: block;
+            width: 40px;
+            /* Length of the line */
+            height: 1px;
+            background: #ff6b35;
+            margin: 0rem auto 0 auto;
+            /* Centers the line below text */
+        }
     </style>
 </head>
 
@@ -1800,6 +2024,33 @@
 
     <!-- About Us Section -->
     <section id="about">
+        <div class="dual-color-card animate">
+            <div class="blue-half"></div>
+            <img src="C:\Users\tingy\OneDrive\Documents\MTI Website\testimonial1.jfif" alt="Student Profile"
+                class="intersection-pic">
+            <div class="white-half">
+                <h3 class="testimonial-header">TESTIMONIAL</h3>
+                <p>
+                    "I studied a Bachelor’s in Biomedical Sciences, completing the first two years of my twinning
+                    programme in the Newcastle University medical campus in Johor, Malaysia, then continuing my final
+                    year studies in Newcastle University, UK. I then pursued a Master’s in Cancer Research in the same
+                    institute.
+                    I’m currently a research assistant at the Cancer Research UK Cambridge Institute, working on making
+                    improved laboratory models of ovarian cancer. Being a research assistant has been a great
+                    opportunity to be involved in innovative and exploratory science, and to be a part of the scientific
+                    community. As the research institute is an academic environment with many research students and
+                    university professors, it has also helped me transition very smoothly from student to work life.
+                    I hope Malaysians who are thinking of applying for university studies knew that there are a huge
+                    variety of options to study abroad currently available, whether full-time programmes, twinning
+                    progammes, or semester"
+                </p>
+                <div class="profile-info">
+                    <h4>Vanessa Wong</h4>
+                    <span>Research Assistant, Cancer Research UK Cambridge Institute</span>
+                </div>
+            </div>
+        </div>
+        <br><br><br><br>
         <div class="about-container">
             <div class="about-text">
                 <h3>WHAT WE DO</h3>
@@ -1876,6 +2127,35 @@
 
         </div>
 
+
+        <div class="dual-color-card animate1">
+
+            <div class="blue-half"></div>
+            <img src="C:\Users\tingy\OneDrive\Documents\MTI Website\testimonial2.jfif" alt="Student Profile"
+                class="intersection-pic">
+            <div class="white-half">
+                <h3 class="testimonial-header">TESTIMONIAL</h3>
+                <p>
+                    I completed my Bachelor’s degree in Chemical Engineering at Newcastle University. After graduating,
+                    I transitioned into the workforce as an Applications Engineer based in Manchester where I worked for
+                    2 years.
+                    Moving from student life to full-time employment in the UK was a significant adjustment. It was a
+                    major lifestyle change — managing tax, bills, and personal finances independently required
+                    discipline and careful planning. Despite the challenges, the post-study experience helped me grow
+                    professionally and personally, and gave me a clearer understanding of working culture in the UK.
+                    One thing I wish Malaysians knew earlier about post-study life in the UK is that both the financial
+                    reality and the work-life balance matter. While salaries may look attractive on paper, high living
+                    costs and taxes can significantly reduce take-home pay, so understanding this early helps set
+                    realistic expectations. At the same time, the UK’s strong work-life balance, including up to 28 days
+                    of annual leave and respect for personal time, makes working life more sustainable and rewarding.
+                    Knowing both sides allows graduates to plan better and actually enjoy life beyond work.
+                </p>
+                <div class="profile-info">
+                    <h4>Hanini binti Mohd Zaki</h4>
+                    <span>Application Engineer, Statiflo Group Ltd (UK)</span>
+                </div>
+            </div>
+        </div>
     </section>
 
     <section id="services">
@@ -3314,7 +3594,7 @@
             });
 
             // Observe cards
-            const cards = document.querySelectorAll('.value-box, .service-card, .destination-card, .scholarship-type-card, .university-card, .info-item');
+            const cards = document.querySelectorAll('.value-box, .service-card, .destination-card, .scholarship-type-card, .university-card, .info-item, .dual-color-card');
             cards.forEach(card => {
                 observer.observe(card);
             });

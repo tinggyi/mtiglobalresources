@@ -12,6 +12,10 @@
             box-sizing: border-box;
         }
 
+        title {
+            font-size: 50px;
+        }
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
@@ -90,10 +94,20 @@
             padding: 0.8rem 1.8rem;
             border-radius: 50px;
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 800;
             transition: all 0.3s;
             cursor: pointer;
             display: inline-block;
+            border: none;
+            /* Add this line */
+            font-size: 1rem;
+            outline: none;
+            /* Also add this to remove focus outline */
+        }
+
+        .cta-button:focus {
+            outline: none;
+            /* Remove outline on click/focus */
         }
 
         .cta-button:hover {
@@ -106,7 +120,7 @@
         .hero {
             height: 100vh;
             background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-                url('hero-bg.png') no-repeat center center;
+                url('testing1.png') no-repeat center center;
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -120,14 +134,14 @@
         }
 
         .hero-content {
-            max-width: 700px;
+            max-width: 750px;
             padding: 2rem;
             position: relative;
             z-index: 1;
         }
 
         .hero h1 {
-            font-size: 4rem;
+            font-size: 3rem;
             margin-bottom: 1rem;
             line-height: 1.2;
             font-weight: 700;
@@ -135,7 +149,7 @@
         }
 
         .hero h2 {
-            font-size: 1.8rem;
+            font-size: 1.2rem;
             margin-bottom: 2.5rem;
             font-weight: 400;
             opacity: 0.95;
@@ -223,6 +237,21 @@
             flex: 1 1 400px;
         }
 
+        .about h3 {
+            font-size: 0.9rem;
+            color: #ff6b35;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+        }
+
+        .about h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.3;
+            color: #333;
+        }
+
         .about-text h3 {
             font-size: 0.9rem;
             color: #ff6b35;
@@ -252,7 +281,7 @@
 
         .about-image img {
             width: 100%;
-            max-width: 500px;
+            max-width: 700px;
             border-radius: 8px;
             object-fit: cover;
         }
@@ -523,6 +552,7 @@
         }
 
         /* Destination Section */
+        /* Destination Section */
         #destination {
             background: white;
         }
@@ -558,18 +588,23 @@
         }
 
         .destination-card:hover::before {
-            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(255, 107, 53, 0.8));
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(255, 107, 53, 0.7));
         }
 
         .destination-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(12, 2, 52, 0.2);
         }
 
         .destination-image {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .destination-card:hover .destination-image {
+            transform: scale(1.05);
         }
 
         .destination-name {
@@ -588,7 +623,7 @@
         }
 
         .destination-card:hover .destination-name {
-            transform: translate(-50%, -50%) scale(1.1);
+            transform: translate(-50%, -50%) scale(1.08);
         }
 
         /* University List Section */
@@ -943,6 +978,7 @@
 
             .contact-info {
                 text-align: center;
+                padding-left: 0;
             }
 
             .info-item {
@@ -965,7 +1001,7 @@
 
         /* Footer Section - Centered Minimalist Style */
         footer {
-            background: #111;
+            background: rgb(7, 7, 76);
             /* Very dark background */
             color: #fff;
             padding: 5rem 2rem;
@@ -1174,6 +1210,769 @@
                 display: none;
             }
         }
+
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                /* Stack Logo on top of Links */
+                padding: 1rem;
+                position: relative;
+                /* Unfix it if it takes up too much screen */
+            }
+
+            .nav-links {
+                gap: 1rem;
+                margin-top: 1rem;
+                flex-wrap: wrap;
+                /* Allow links to wrap to next line */
+                justify-content: center;
+                /* Center the links */
+                width: 100%;
+                padding: 0;
+            }
+
+            .nav-links a {
+                font-size: 0.9rem;
+                /* Make text slightly smaller */
+                display: block;
+                padding: 5px 10px;
+            }
+
+            /* Adjust Hero padding since Nav is taller now */
+            .hero {
+                padding-top: 140px;
+            }
+        }
+
+        /* SCHOLARSHIP SECTION CSS */
+        #scholarship {
+            background: #f9f9f9;
+        }
+
+        .scholarship-types-grid {
+            max-width: 1200px;
+            margin: 0 auto 2rem auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .scholarship-type-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border: 1px solid #eee;
+        }
+
+        .scholarship-type-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+        }
+
+        .scholarship-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .scholarship-type-card h4 {
+            color: #333;
+            font-size: 1.1rem;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+        }
+
+        .scholarship-type-card p {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        /* 1. The Background Wrapper (Hidden by default) */
+        .scholarship-form-wrapper {
+            display: none;
+            /* HIDDEN unless .active is added */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 10000;
+
+            /* MOBILE FIX: Use flex-start so top isn't cut off */
+            align-items: flex-start;
+            justify-content: center;
+            overflow-y: auto;
+            /* Allows scrolling */
+            padding: 2rem 1rem;
+        }
+
+        /* 2. THIS IS THE MISSING PIECE: The Active State */
+        .scholarship-form-wrapper.active {
+            display: flex;
+            /* This makes it visible! */
+        }
+
+        /* 3. The White Form Container */
+        .scholarship-form-container {
+            background: white;
+            max-width: 600px;
+            width: 100%;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            position: relative;
+
+            /* Center the form vertically if screen is large enough */
+            margin: auto;
+
+            animation: slideUp 0.3s ease;
+        }
+
+        /* 4. The Animation */
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .form-close-btn {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: #f0f0f0;
+            border: none;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+        }
+
+        .form-close-btn:hover {
+            background: #ff6b35;
+            color: white;
+            transform: rotate(90deg);
+        }
+
+        .scholarship-form-container h3 {
+            font-size: 1.8rem;
+            color: #333;
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+
+        .form-subtitle {
+            color: #666;
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .form-note {
+            text-align: center;
+            color: #999;
+            font-size: 0.85rem;
+            margin-top: 1.5rem;
+        }
+
+        /* Form styling - reuse existing .form-group styles */
+
+        @media (max-width: 768px) {
+            .scholarship-types-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .scholarship-form-container {
+                padding: 2rem 1.5rem;
+                margin: 1rem;
+            }
+
+            .scholarship-form-wrapper {
+                padding: 1rem;
+            }
+        }
+
+        /* Add to your existing CSS */
+
+        /* Hamburger Menu Icon (hidden by default on desktop) */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+            z-index: 1001;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background-color: #333;
+            transition: all 0.3s ease;
+            border-radius: 3px;
+        }
+
+        /* Hamburger animation when active */
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        /* Mobile Navigation Styles */
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem 5%;
+                position: fixed;
+                flex-direction: row;
+                /* Change from column to row */
+                justify-content: space-between;
+                /* Space between logo and hamburger */
+            }
+
+            .hamburger {
+                display: flex;
+                order: 2;
+                /* Ensures hamburger stays on the right */
+            }
+
+            .logo {
+                order: 1;
+                /* Ensures logo stays on the left */
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                height: 100vh;
+                width: 70%;
+                max-width: 300px;
+                background: white;
+                flex-direction: column;
+                justify-content: flex-start;
+                padding-top: 80px;
+                gap: 0;
+                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+                transition: right 0.4s ease;
+                overflow-y: auto;
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .nav-links li {
+                width: 100%;
+                border-bottom: 1px solid #f0f0f0;
+            }
+
+            .nav-links a {
+                display: block;
+                padding: 1.2rem 2rem;
+                width: 100%;
+                text-align: left;
+                font-size: 1rem;
+            }
+
+            .nav-links a::after {
+                display: none;
+            }
+
+            .nav-links a:hover {
+                background: #f9f9f9;
+                color: #ff6b35;
+            }
+
+            /* Hero adjustment for mobile */
+            .hero {
+                padding-top: 80px;
+            }
+
+            /* Overlay when menu is open */
+            .nav-overlay {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                background: rgba(0, 0, 0, 0.5);
+                z-index: 999;
+            }
+
+            .nav-overlay.active {
+                display: block;
+            }
+        }
+
+        section {
+            min-height: 100vh;
+            padding: 6rem 5%;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        section.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Hero section stays static (loads immediately) */
+        .hero {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
+
+        /* Force all hero content to be visible immediately with no animation */
+        .hero-content,
+        .hero-content h1,
+        .hero-content h2,
+        .hero-button {
+            opacity: 1 !important;
+            animation: none !important;
+            transform: none !important;
+        }
+
+        /* Cards and elements - no animation by default */
+        .value-box,
+        .service-card,
+        .destination-card,
+        .scholarship-type-card,
+        .university-card,
+        .about-text,
+        .about-image,
+        .about-text2,
+        .section-header,
+        .contact-info,
+        .contact-form-container,
+        .info-item,
+        .dual-color-card {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        /* Animate class triggers the fade in */
+        .value-box.animate,
+        .service-card.animate,
+        .destination-card.animate,
+        .scholarship-type-card.animate,
+        .university-card.animate,
+        .about-text.animate,
+        .about-image.animate,
+        .about-text2.animate,
+        .section-header.animate,
+        .contact-info.animate,
+        .contact-form-container.animate,
+        .info-item.animate,
+        .dual-color-card.animate,
+        .dual-color-card.animate1 {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Stagger delays for cards within the same container */
+        .value-box:nth-child(1).animate {
+            transition-delay: 0.1s;
+        }
+
+        .value-box:nth-child(2).animate {
+            transition-delay: 0.2s;
+        }
+
+        .value-box:nth-child(3).animate {
+            transition-delay: 0.3s;
+        }
+
+        .value-box:nth-child(4).animate {
+            transition-delay: 0.4s;
+        }
+
+        .service-card:nth-child(1).animate {
+            transition-delay: 0.1s;
+        }
+
+        .service-card:nth-child(2).animate {
+            transition-delay: 0.2s;
+        }
+
+        .service-card:nth-child(3).animate {
+            transition-delay: 0.3s;
+        }
+
+        .service-card:nth-child(4).animate {
+            transition-delay: 0.4s;
+        }
+
+        .scholarship-type-card:nth-child(1).animate {
+            transition-delay: 0.1s;
+        }
+
+        .scholarship-type-card:nth-child(2).animate {
+            transition-delay: 0.2s;
+        }
+
+        .scholarship-type-card:nth-child(3).animate {
+            transition-delay: 0.3s;
+        }
+
+        .scholarship-type-card:nth-child(4).animate {
+            transition-delay: 0.4s;
+        }
+
+        .scholarship-type-card:nth-child(5).animate {
+            transition-delay: 0.5s;
+        }
+
+        .destination-card:nth-child(1).animate {
+            transition-delay: 0.1s;
+        }
+
+        .destination-card:nth-child(2).animate {
+            transition-delay: 0.2s;
+        }
+
+        .destination-card:nth-child(3).animate {
+            transition-delay: 0.3s;
+        }
+
+        .destination-card:nth-child(4).animate {
+            transition-delay: 0.4s;
+        }
+
+        .destination-card:nth-child(5).animate {
+            transition-delay: 0.5s;
+        }
+
+        .info-item:nth-child(1).animate {
+            transition-delay: 0.2s;
+        }
+
+        .info-item:nth-child(2).animate {
+            transition-delay: 0.3s;
+        }
+
+        .info-item:nth-child(3).animate {
+            transition-delay: 0.4s;
+        }
+
+        /* Testimonial cards stagger */
+        .dual-color-card:nth-child(1).animate {
+            transition-delay: 0.1s;
+        }
+
+        .dual-color-card:nth-child(2).animate1 {
+            transition-delay: 0.8s;
+        }
+
+        /* Keep keyframes for hero section */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Working Holiday Dialog CSS */
+        .working-holiday-dialog {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 10000;
+            align-items: flex-start;
+            justify-content: center;
+            overflow-y: auto;
+            padding: 2rem 1rem;
+        }
+
+        .working-holiday-dialog.active {
+            display: flex;
+        }
+
+        .working-holiday-content {
+            background: white;
+            max-width: 700px;
+            width: 100%;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            position: relative;
+            margin: auto;
+            animation: slideUp 0.3s ease;
+        }
+
+        .working-holiday-content h3 {
+            font-size: 2rem;
+            color: #333;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .working-holiday-content h4 {
+            font-size: 1.3rem;
+            color: #ff6b35;
+            margin-top: 1.5rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .working-holiday-content p {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+            font-size: 1.05rem;
+        }
+
+        .working-holiday-content ul {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .working-holiday-content ul li {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .working-holiday-content {
+                padding: 2rem 1.5rem;
+                margin: 1rem;
+            }
+
+            .working-holiday-dialog {
+                padding: 1rem;
+            }
+        }
+
+        /* Dual Color Testimonial Card */
+        .dual-color-card {
+            position: relative;
+            /* REQUIRED: Makes the absolute image stick to this card */
+            display: flex;
+            max-width: 1100px;
+            margin: 0rem auto 0 5rem;
+            background: white;
+            border-radius: 30px;
+            overflow: visible;
+            /* CHANGED: Must be visible so the image shadow doesn't get cut off */
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+            min-height: 520px;
+            padding-top: 0%;
+        }
+
+
+        /* The Floating Image */
+        .intersection-pic {
+            position: absolute;
+            left: 24.4%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 340px;
+            height: 420px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            object-fit: cover;
+            z-index: 10;
+        }
+
+        /* LEFT SIDE: Blue */
+        .blue-half {
+            flex: 1.2;
+            position: relative;
+            background-color: rgb(7, 7, 76);
+            /* No content needed here if you just want the color bar */
+            border-top-left-radius: 30px;
+            border-bottom-left-radius: 30px;
+        }
+
+        .blue-half::before {
+            content: "\201C";
+            /* Left Double Quote */
+            position: absolute;
+            top: 20px;
+            /* 20px from the top edge */
+            left: 30px;
+            /* 30px from the left edge */
+            font-family: "Georgia", serif;
+            font-size: 8rem;
+            color: #ff6b35;
+            /* Orange looks great against Dark Blue */
+            /* Slightly more visible against the dark background */
+            line-height: 1;
+            pointer-events: none;
+        }
+
+        /* RIGHT SIDE: White */
+        .white-half {
+            position: relative;
+            /* CRITICAL: This makes the quotes stick to the corners of this box */
+            flex: 2.5;
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 3rem 3rem 3rem 6rem;
+            text-align: center;
+            border-top-right-radius: 30px;
+            border-bottom-right-radius: 30px;
+        }
+
+        /* 3. Bottom-Right Closing Quote */
+        .white-half::after {
+            content: "\201D";
+            /* Right Double Quote */
+            position: absolute;
+            bottom: -20px;
+            /* Adjust distance from bottom edge */
+            right: 20px;
+            /* Adjust distance from right edge */
+            font-family: "Georgia", serif;
+            font-size: 8rem;
+            color: #ff6b35;
+
+            line-height: 1;
+            pointer-events: none;
+        }
+
+        .white-half p {
+            font-size: 0.9rem;
+            color: #555;
+            line-height: 1.2;
+            margin-bottom: 2rem;
+            max-width: 550px;
+            font-style: oblique;
+        }
+
+        .profile-info h4 {
+            font-size: 1.3rem;
+            color: #333;
+            margin-bottom: 0.3rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .profile-info span {
+            color: #ff6b35;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .dual-color-card {
+                flex-direction: column;
+                margin-top: 4rem;
+                overflow: visible;
+                /* Ensure image doesn't get clipped */
+            }
+
+            .blue-half {
+                height: 60px;
+                /* Just a decorative top bar on mobile */
+                flex: none;
+                border-radius: 30px 30px 0 0;
+            }
+
+            .white-half {
+                padding: 4rem 2rem 2rem 2rem;
+                /* Adjust padding for mobile */
+                border-radius: 0 0 30px 30px;
+            }
+
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h3 {
+            font-size: 0.9rem;
+            color: #ff6b35;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: #333;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: #ff6b35;
+        }
+
+        .testimonial-header {
+            color: #ff6b35;
+            font-size: 0.9rem;
+            font-weight: 800;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+
+            margin-top: 0;
+
+            margin-bottom: 1.9rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        /* Optional: Adds a small decorative line under the title */
+        .testimonial-header::after {
+            content: '';
+            display: block;
+            width: 40px;
+            /* Length of the line */
+            height: 1px;
+            background: #ff6b35;
+            margin: 0rem auto 0 auto;
+            /* Centers the line below text */
+        }
     </style>
 </head>
 
@@ -1188,81 +1987,120 @@
         </svg>
     </a>
 
-    <!-- Navigation Bar -->
     <nav>
         <div class="logo">
             <img src="logo.png" alt="MTI Logo">
         </div>
-        <ul class="nav-links">
-            <li><a href="#home">HOME</a></li>
-            <li><a href="#about">ABOUT US</a></li>
-            <li><a href="#services">SERVICES</a></li>
-            <li><a href="#destination">DESTINATIONS</a></li>
-            <li><a href="#scholarship">SCHOLARSHIPS</a></li>
-            <li><a href="#contact">CONTACT US</a></li>
+
+        <!-- Hamburger Icon -->
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#home" onclick="closeMenu()">HOME</a></li>
+            <li><a href="#about" onclick="closeMenu()">ABOUT US</a></li>
+            <li><a href="#services" onclick="closeMenu()">SERVICES</a></li>
+            <li><a href="#destination" onclick="closeMenu()">COUNTRIES</a></li>
+            <li><a href="#scholarship" onclick="closeMenu()">SCHOLARSHIPS</a></li>
+            <li><a href="#contact" onclick="closeMenu()">CONTACT US</a></li>
         </ul>
     </nav>
+
+    <!-- Overlay (add this right after nav) -->
+    <div class="nav-overlay" id="navOverlay" onclick="closeMenu()"></div>
 
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-content">
-            <h1>Your Compass to Global Education.</h1>
-            <h2>Experienced & Reliable Expertise, since 1968</h2>
-            <a class="hero-button" href="#contact">CONTACT US →</a>
+            <h1>Your Compass to Global Education</h1>
+            <h2><b>Study Abroad. Scholarships. Career-Focused Pathways</b></h2>
+            <a class="hero-button" href="https://wa.me/60176908241">SPEAK TO AN ADVISOR →</a>
         </div>
         <div class="scroll-indicator"></div>
     </section>
 
     <!-- About Us Section -->
     <section id="about">
+        <div class="dual-color-card animate">
+            <div class="blue-half"></div>
+            <img src="C:\Users\tingy\OneDrive\Documents\MTI Website\testimonial1.jfif" alt="Student Profile"
+                class="intersection-pic">
+            <div class="white-half">
+                <h3 class="testimonial-header">TESTIMONIAL</h3>
+                <p>
+                    "I studied a Bachelor’s in Biomedical Sciences, completing the first two years of my twinning
+                    programme in the Newcastle University medical campus in Johor, Malaysia, then continuing my final
+                    year studies in Newcastle University, UK. I then pursued a Master’s in Cancer Research in the same
+                    institute.
+                    I’m currently a research assistant at the Cancer Research UK Cambridge Institute, working on making
+                    improved laboratory models of ovarian cancer. Being a research assistant has been a great
+                    opportunity to be involved in innovative and exploratory science, and to be a part of the scientific
+                    community. As the research institute is an academic environment with many research students and
+                    university professors, it has also helped me transition very smoothly from student to work life.
+                    I hope Malaysians who are thinking of applying for university studies knew that there are a huge
+                    variety of options to study abroad currently available, whether full-time programmes, twinning
+                    progammes, or semester"
+                </p>
+                <div class="profile-info">
+                    <h4>Vanessa Wong</h4>
+                    <span>Research Assistant, Cancer Research UK Cambridge Institute</span>
+                </div>
+            </div>
+        </div>
+        <br><br><br><br>
         <div class="about-container">
             <div class="about-text">
                 <h3>WHAT WE DO</h3>
                 <h2>We help students study overseas the right way.</h2>
                 <p>
-                    We guide students and parents on course selection, university choice,
-                    scholarships, and application process, with a clear focus on cost, outcomes,
-                    and future career path.
+                    We provide clear guidance on universities, courses, and scholarships,
+                    with a focus on cost and future career options.
                 </p>
                 <p>
-                    We don't push random universities or sell false promises.
-                    We match the right student to the right country, course, and budget,
-                    so studying abroad makes sense, not stress.
+                    We recommend what fits the student’s background and budget.
+                    Just advice that makes sense.
                 </p>
                 <a class="cta-button" href="#contact">GET IN TOUCH →</a>
             </div>
 
             <div class="about-image">
-                <img src="hero-bg1.jpg" alt="About MTI Education Resources">
+                <img src="hero-bg1.jpeg" alt="About MTI Education Resources">
             </div>
         </div>
 
         <div class="values-container">
             <div class="value-box">
-                <h4>Student-First Approach</h4>
+                <h4>Personalised Planning</h4>
                 <p>
-                    Every recommendation is made with your goals, background and future in mind.
+                    Every student is different.
+                    We recommend options based on the student’s background, ability, and goals.
                 </p>
             </div>
 
             <div class="value-box">
-                <h4>Honest & Transparent Guidance</h4>
+                <h4>Free Consultation</h4>
                 <p>
-                    We provide clear, unbiased advice so you can make confident education decisions.
+                    Honest advice before any commitment.
+
                 </p>
             </div>
 
             <div class="value-box">
-                <h4>Global Network & Experience</h4>
+                <h4>UK & Europe Pathways That Work</h4>
                 <p>
-                    With decades of experience, we connect students to quality institutions worldwide.
+                    We focus on universities with real post-study opportunities,
+                    not just well-known names.
                 </p>
             </div>
 
             <div class="value-box">
                 <h4>Support Beyond Admission</h4>
                 <p>
-                    From application to arrival, we guide you every step of the journey.
+                    Our support continues after acceptance,
+                    from visa application to settling overseas.
                 </p>
             </div>
         </div>
@@ -1274,19 +2112,50 @@
 
             <div class="founder-text">
                 <h3>ABOUT US</h3>
-                <h2>Founded by a UK graduate from Newcastle University (Class of 2023).</h2>
+                <h2>Founded by a UK scholarship graduate.</h2>
                 <p>
-                    Former Vice-Chancellor's Scholarship holder, awarded 50% tuition fee scholarship (2020–2023),
-                    with real experience studying, living abroad, and backpacking across Europe.
+                    A former Vice-Chancellor’s Scholarship holder at Newcastle University, awarded a 50% tuition fee
+                    scholarship, with real experience studying and living overseas, including backpacking across the UK
+                    and Europe.
                 </p>
                 <p>
-                    This first-hand experience allows us to guide students with practical advice and
-                    realistic expectations.
+                    We guide students with clarity, honesty, and realistic expectations, based on experience rather than
+                    assumptions.
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;— 𝑮𝒍𝒂𝒅𝒚𝒔 𝑳𝒆𝒆
                 </p>
             </div>
 
         </div>
 
+
+        <div class="dual-color-card animate1">
+
+            <div class="blue-half"></div>
+            <img src="C:\Users\tingy\OneDrive\Documents\MTI Website\testimonial2.jfif" alt="Student Profile"
+                class="intersection-pic">
+            <div class="white-half">
+                <h3 class="testimonial-header">TESTIMONIAL</h3>
+                <p>
+                    I completed my Bachelor’s degree in Chemical Engineering at Newcastle University. After graduating,
+                    I transitioned into the workforce as an Applications Engineer based in Manchester where I worked for
+                    2 years.
+                    Moving from student life to full-time employment in the UK was a significant adjustment. It was a
+                    major lifestyle change — managing tax, bills, and personal finances independently required
+                    discipline and careful planning. Despite the challenges, the post-study experience helped me grow
+                    professionally and personally, and gave me a clearer understanding of working culture in the UK.
+                    One thing I wish Malaysians knew earlier about post-study life in the UK is that both the financial
+                    reality and the work-life balance matter. While salaries may look attractive on paper, high living
+                    costs and taxes can significantly reduce take-home pay, so understanding this early helps set
+                    realistic expectations. At the same time, the UK’s strong work-life balance, including up to 28 days
+                    of annual leave and respect for personal time, makes working life more sustainable and rewarding.
+                    Knowing both sides allows graduates to plan better and actually enjoy life beyond work.
+                </p>
+                <div class="profile-info">
+                    <h4>Hanini binti Mohd Zaki</h4>
+                    <span>Application Engineer, Statiflo Group Ltd (UK)</span>
+                </div>
+            </div>
+        </div>
     </section>
 
     <section id="services">
@@ -1302,9 +2171,8 @@
                     alt="Counselling and Advice" class="service-image">
                 <div class="service-content">
                     <h4>Counselling and Advice</h4>
-                    <p>If you are planning to study abroad, come and see MTI! Our dedicated education advisors
-                        will provide advice on career counselling, course selection, choice of institution, location,
-                        scholarships and financial advice to suit your individual priorities and needs.</p>
+                    <p>Personalised study planning based on the student’s goals and budget.
+                    </p>
                     <a href="#contact" class="service-cta">Learn More</a>
                 </div>
             </div>
@@ -1315,8 +2183,7 @@
                     alt="Universities' Applications" class="service-image">
                 <div class="service-content">
                     <h4>Universities' Applications</h4>
-                    <p>Once you've submitted your application(s) to the university or college of your choice, MTI
-                        will request a fast admission response and credit exemptions, (if you are applying to transfer).
+                    <p>Support with university applications from start to offer.
                     </p>
                     <a href="#contact" class="service-cta">Learn More</a>
                 </div>
@@ -1328,8 +2195,7 @@
                     alt="Accommodation Arrangements" class="service-image">
                 <div class="service-content">
                     <h4>Accommodation Arrangements</h4>
-                    <p>You will receive your acceptance letter after a successful application process. MTI will
-                        assist you to apply for on and off-campus accommodation close to your university or college.</p>
+                    <p>Guidance on securing suitable student accommodation.</p>
                     <a href="#contact" class="service-cta">Learn More</a>
                 </div>
             </div>
@@ -1340,10 +2206,18 @@
                     alt="Visa Application" class="service-image">
                 <div class="service-content">
                     <h4>Visa Application</h4>
-                    <p>MTI will advise you, and brief you thoroughly on the preparations necessary for your
-                        Student Visa application, and will assist you every step of the way to ensure your visa
-                        application is successful.</p>
+                    <p>Step-by-step support for a smooth student visa process.</p>
                     <a href="#contact" class="service-cta">Learn More</a>
+                </div>
+            </div>
+
+            <!-- Service 5: Working Holiday -->
+            <div class="service-card">
+                <img src="IMG_6617.png" alt="Working Holiday" class="service-image">
+                <div class="service-content">
+                    <h4>Working Holiday Pathways</h4>
+                    <p>Overseas work experience through official Working Holiday visas.</p>
+                    <a href="#" class="service-cta" onclick="showWorkingHolidayDialog(event)">Learn More</a>
                 </div>
             </div>
         </div>
@@ -2320,12 +3194,133 @@
     <section id="scholarship">
         <div class="section-header">
             <h3>SCHOLARSHIPS</h3>
-            <h2>Funding Your Education</h2>
+            <h2>Scholarship Types</h2>
         </div>
-        <div style="text-align: center; color: #666; padding: 2rem;">
-            <p>Scholarship content coming soon...</p>
+
+        <!-- Scholarship Types Grid -->
+        <div class="scholarship-types-grid">
+            <div class="scholarship-type-card">
+                <div class="scholarship-icon">🎓</div>
+                <h4>University Scholarships</h4>
+                <p>Awarded by universities based on the student’s overall profile.
+                    <br><br>Typical value: <i>5%–50%</i> tuition fee reduction
+                </p>
+            </div>
+
+            <div class="scholarship-type-card">
+                <div class="scholarship-icon">⭐</div>
+                <h4>Merit Scholarships</h4>
+                <p>For students with strong academic results and consistent performance.
+                    <br><br>Typical value: <i>10%–50%</i> tuition fee reduction
+                </p>
+            </div>
+
+            <div class="scholarship-type-card">
+                <div class="scholarship-icon">📚</div>
+                <h4>Subject Scholarships</h4>
+                <p>Available for selected courses such as Business, Engineering, or IT.
+                    <br><br>Typical value: <i>10%–30%</i> tuition fee reduction
+                </p>
+            </div>
+
+            <div class="scholarship-type-card">
+                <div class="scholarship-icon">🌏</div>
+                <h4>Regional/ASEAN Scholarships</h4>
+                <p>Offered to students from ASEAN countries by certain universities.
+                    <br><br>Typical value: <i>5%–20%</i> tuition fee reduction
+                </p>
+            </div>
+
+            <div class="scholarship-type-card">
+                <div class="scholarship-icon">💰</div>
+                <h4>Early Payment / Tuition Discounts</h4>
+                <p>Fee reductions given for early confirmation or early tuition payment.
+                    <br><br>Typical value: <i>5%–10%</i> tuition fee reduction
+                </p>
+            </div>
         </div>
+
+        <!-- Single CTA Button -->
+        <div style="text-align: center; margin-top: 3rem;">
+            <button class="cta-button" onclick="showScholarshipForm()">Check My Eligibility</button>
+        </div>
+
+
     </section>
+
+    <!-- Scholarship Form (Hidden by default) -->
+    <div class="scholarship-form-wrapper" id="scholarshipFormWrapper">
+        <div class="scholarship-form-container">
+            <button class="form-close-btn" onclick="hideScholarshipForm()">×</button>
+            <h3>Scholarship Eligibility Check</h3>
+            <p class="form-subtitle">Fill out the form below to check your eligibility.<br>We will review your
+                profile and reach out with suitable options.</p>
+
+            <form action="https://api.web3forms.com/submit" method="POST" id="scholarshipForm">
+                <input type="hidden" name="access_key" value="cde7e556-fa65-41e1-a0f4-87a0ad3a1bd1">
+                <input type="hidden" name="subject" value="Scholarship Eligibility Check from MTI Website">
+
+                <div class="form-group">
+                    <label for="fullName">👤 Full Name *</label>
+                    <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="emailScholarship">✉️ Email *</label>
+                    <input type="email" id="emailScholarship" name="email" placeholder="Enter your email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="whatsapp">📱 WhatsApp Number *</label>
+                    <input type="tel" id="whatsapp" name="whatsapp" placeholder="Enter your WhatsApp number" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="qualification">🎓 Current Qualification *</label>
+                    <select id="qualification" name="qualification" required>
+                        <option value="">Select your qualification</option>
+                        <option value="SPM / IGCSE">SPM / IGCSE</option>
+                        <option value="A-Levels / STPM">A-Levels / STPM</option>
+                        <option value="Foundation">Foundation</option>
+                        <option value="Diploma">Diploma</option>
+                        <option value="Bachelor's Degree">Bachelor's Degree</option>
+                        <option value="Master's Degree">Master's Degree</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="scholarshipType">💡 Scholarship Type Interested *</label>
+                    <select id="scholarshipType" name="scholarshipType" required>
+                        <option value="">Select scholarship type</option>
+                        <option value="University Scholarships">University Scholarships</option>
+                        <option value="Merit Scholarships">Merit Scholarships</option>
+                        <option value="Subject Scholarships">Subject Scholarships</option>
+                        <option value="Regional/ASEAN Scholarships">Regional/ASEAN Scholarships</option>
+                        <option value="Early Payment / Tuition Discounts">Early Payment / Tuition Discounts</option>
+                        <option value="Any Available">Any Available</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="intendedCountry">🌍 Intended Country *</label>
+                    <select id="intendedCountry" name="intendedCountry" required>
+                        <option value="">Select intended country</option>
+                        <option value="United Kingdom">United Kingdom</option>
+                        <option value="Europe">Europe</option>
+                        <option value="Ireland">Ireland</option>
+                        <option value="Malaysia">Malaysia</option>
+                        <option value="Singapore">Singapore</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="submit-btn">Submit for Review →</button>
+            </form>
+
+            <p class="form-note">Your information is kept confidential and secure.</p>
+        </div>
+    </div>
 
     <!-- Contact Section -->
     <section id="contact">
@@ -2355,9 +3350,11 @@
                 <div class="info-item">
                     <div class="info-icon">📍</div>
                     <div class="info-content">
-                        <p>Suite 10-3, Level 10<br>
-                            Menara MITI, Jalan Sultan Haji Ahmad Shah<br>
-                            50480 Kuala Lumpur, Malaysia</p>
+                        <a href="https://www.google.com/maps/place/13,+Jalan+Harmoni+Indah+1,+Taman+Harmoni+Indah,+43300+Seri+Kembangan,+Selangor/@3.025461,101.7305373,17z/data=!3m1!4b1!4m6!3m5!1s0x31cdcac8fca5b969:0x239694c43d80b849!8m2!3d3.0254556!4d101.7331122!16s%2Fg%2F11q2ng983m?entry=ttu&g_ep=EgoyMDI2MDExMy4wIKXMDSoASAFQAw%3D%3D"
+                            target="_blank">No.13-3A,
+                            Jalan Harmoni Indah 1<br>
+                            Taman Harmoni Indah, 43300 Seri Kembangan<br>
+                            Selangor, Malaysia</a>
                     </div>
                 </div>
 
@@ -2401,9 +3398,50 @@
         </div>
     </section>
 
+    <!-- Working Holiday Dialog -->
+    <div class="working-holiday-dialog" id="workingHolidayDialog">
+        <div class="working-holiday-content">
+            <button class="form-close-btn" onclick="hideWorkingHolidayDialog()">×</button>
+            <h3>Working Holiday Pathways</h3>
+
+            <p>A practical overseas gap year to gain work experience and clarity before committing to long-term study or
+                career paths.</p>
+
+            <h4>What is a Working Holiday?</h4>
+            <p>A government-approved visa that allows young adults to live and work overseas legally for a fixed period,
+                usually 6–12 months, depending on the country.</p>
+
+            <h4>Who is this for?</h4>
+            <ul>
+                <li>Students or fresh graduates</li>
+                <li>Those unsure what degree or career path to commit to</li>
+                <li>Individuals seeking overseas exposure before long-term study</li>
+                <li>Anyone planning future study or work pathways</li>
+                <li>Young adults aged 18–30 (or 35 for some countries)</li>
+            </ul>
+
+            <h4>Why Does It Matter?</h4>
+            <p>A structured gap year to gain real-world experience and clarity before committing to a full degree or
+                further studies.</p>
+
+            <h4>Popular Destinations</h4>
+            <ul>
+                <li><strong>Australia:</strong> High wages, wide range of short-term jobs</li>
+                <li><strong>United Kingdom:</strong> Work experience with access to Europe</li>
+                <li><strong>Ireland:</strong> English-speaking, strong job demand, EU exposure</li>
+                <li><strong>New Zealand:</strong> Seasonal work, balanced lifestyle</li>
+                <li><strong>Canada:</strong> Multicultural environment, structured work options</li>
+            </ul>
+
+            <p style="text-align: center; margin-top: 2rem;">
+                <a href="#contact" class="cta-button" onclick="hideWorkingHolidayDialog()">Get Started →</a>
+            </p>
+        </div>
+    </div>
+
     <footer>
         <div class="footer-content">
-            <div class="footer-logo">MTI Education Resources</div>
+            <div class="footer-logo">MTI Global Education Resources</div>
 
             <ul class="footer-menu">
                 <li><a href="#home">Home</a></li>
@@ -2415,7 +3453,8 @@
             </ul>
 
             <div class="footer-social">
-                <a href="#" target="_blank" class="social-icon">
+                <a href="https://www.facebook.com/share/1CkXYQyZwi/?mibextid=wwXIfr" target="_blank"
+                    class="social-icon">
                     <img src="facebook.png" alt="Facebook">
                 </a>
 
@@ -2477,10 +3516,123 @@
             document.getElementById('destination').scrollIntoView({ behavior: 'smooth' });
         }
 
+        // SCHOLARSHIP FORM JAVASCRIPT FUNCTIONS
+        function showScholarshipForm() {
+            document.getElementById('scholarshipFormWrapper').classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        }
 
+        function hideScholarshipForm() {
+            document.getElementById('scholarshipFormWrapper').classList.remove('active');
+            document.body.style.overflow = ''; // Restore scrolling
+        }
 
+        // Close form when clicking outside
+        document.getElementById('scholarshipFormWrapper')?.addEventListener('click', function (e) {
+            if (e.target === this) {
+                hideScholarshipForm();
+            }
+        });
+
+        // Close form with Escape key
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') {
+                hideScholarshipForm();
+            }
+        });
+
+        // Add to your existing JavaScript at the bottom
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+        const navOverlay = document.getElementById('navOverlay');
+
+        // Toggle menu
+        hamburger.addEventListener('click', function () {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+            navOverlay.classList.toggle('active');
+            document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+        });
+
+        // Close menu function
+        function closeMenu() {
+            hamburger.classList.remove('active');
+            navLinks.classList.remove('active');
+            navOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Close menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', closeMenu);
+        });
+
+        // Add this JavaScript to your existing <script> tag at the bottom
+
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                    // Optional: stop observing after animation
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections and animated elements
+        document.addEventListener('DOMContentLoaded', () => {
+            // Observe sections
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+
+            // Observe cards
+            const cards = document.querySelectorAll('.value-box, .service-card, .destination-card, .scholarship-type-card, .university-card, .info-item, .dual-color-card');
+            cards.forEach(card => {
+                observer.observe(card);
+            });
+
+            // Observe other elements
+            const elements = document.querySelectorAll('.about-text, .about-image, .about-text2, .section-header, .contact-info, .contact-form-container');
+            elements.forEach(el => {
+                observer.observe(el);
+            });
+        });
+
+        // WORKING HOLIDAY DIALOG FUNCTIONS
+        function showWorkingHolidayDialog(event) {
+            event.preventDefault(); // Prevent the link from navigating
+            document.getElementById('workingHolidayDialog').classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        }
+
+        function hideWorkingHolidayDialog() {
+            document.getElementById('workingHolidayDialog').classList.remove('active');
+            document.body.style.overflow = ''; // Restore scrolling
+        }
+
+        // Close dialog when clicking outside
+        document.getElementById('workingHolidayDialog')?.addEventListener('click', function (e) {
+            if (e.target === this) {
+                hideWorkingHolidayDialog();
+            }
+        });
+
+        // Update the existing Escape key handler to also close the Working Holiday dialog
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') {
+                hideScholarshipForm();
+                hideWorkingHolidayDialog();
+            }
+        });
     </script>
-
 </body>
 
 </html>
