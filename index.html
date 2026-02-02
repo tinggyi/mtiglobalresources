@@ -1919,8 +1919,10 @@
                 padding: 1.5rem;
                 /* Adjust padding for mobile */
                 border-radius: 0 0 30px 30px;
-                margin-top: 280px;
-                /* Make space for the image above */
+                margin-top: 120px;
+                /* Reduced space - profile info now shows right after image */
+                display: flex;
+                flex-direction: column;
             }
 
             .white-half::after {
@@ -1932,6 +1934,8 @@
             .white-half p {
                 font-size: 0.85rem;
                 line-height: 1.5;
+                order: 3;
+                /* Move text after profile info */
             }
 
             .intersection-pic {
@@ -1942,12 +1946,28 @@
                 height: 340px;
             }
 
+            /* Position profile info right after image */
+            .profile-info {
+                order: 1;
+                /* Show first, right after image */
+                margin-top: 260px;
+                /* Space from top to clear the image */
+                margin-bottom: 1.5rem;
+                /* Space before testimonial text */
+            }
+
             .profile-info h4 {
                 font-size: 1.1rem;
             }
 
             .profile-info span {
                 font-size: 0.85rem;
+            }
+
+            /* Testimonial header comes after profile */
+            .testimonial-header {
+                order: 2;
+                margin-bottom: 1rem;
             }
         }
 
