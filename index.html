@@ -1892,6 +1892,10 @@
             font-size: 0.95rem;
         }
 
+        .read-more-btn {
+            display: none;
+        }
+
         /* Mobile Responsive */
         @media (max-width: 768px) {
             .dual-color-card {
@@ -1936,6 +1940,48 @@
                 line-height: 1.5;
                 order: 3;
                 /* Move text after profile info */
+            }
+
+            /* Testimonial text truncation on mobile */
+            .white-half p.testimonial-text {
+                max-height: 120px;
+                overflow: hidden;
+                position: relative;
+                transition: max-height 0.3s ease;
+            }
+
+            .white-half p.testimonial-text.expanded {
+                max-height: none;
+            }
+
+            .white-half p.testimonial-text:not(.expanded)::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                height: 40px;
+                background: linear-gradient(to bottom, transparent, white);
+            }
+
+            .read-more-btn {
+                display: inline-block;
+                order: 4;
+                background: none;
+                border: none;
+                color: #ff6b35;
+                font-weight: 600;
+                font-size: 0.9rem;
+                cursor: pointer;
+                padding: 0.5rem 0;
+                margin-top: 0.5rem;
+                text-decoration: underline;
+                display: inline-block;
+                transition: color 0.3s ease;
+            }
+
+            .read-more-btn:hover {
+                color: #ff8555;
             }
 
             .intersection-pic {
@@ -2098,6 +2144,7 @@
                     variety of options to study abroad currently available, whether full-time programmes, twinning
                     progammes, or semester"
                 </p>
+                <button class="read-more-btn" onclick="toggleReadMore(this)">Read More</button>
                 <div class="profile-info">
                     <h4>Vanessa Wong</h4>
                     <span>Research Assistant, Cancer Research UK Cambridge Institute</span>
@@ -2203,6 +2250,7 @@
                     of annual leave and respect for personal time, makes working life more sustainable and rewarding.
                     Knowing both sides allows graduates to plan better and actually enjoy life beyond work.
                 </p>
+                <button class="read-more-btn" onclick="toggleReadMore(this)">Read More</button>
                 <div class="profile-info">
                     <h4>Hanini binti Mohd Zaki</h4>
                     <span>Application Engineer, Statiflo Group Ltd (UK)</span>
@@ -3549,6 +3597,17 @@
                 } else {
                     cards[i].style.display = "none";
                 }
+            }
+        }
+
+        function toggleReadMore(button) {
+            const paragraph = button.previousElementSibling;
+            paragraph.classList.toggle('expanded');
+
+            if (paragraph.classList.contains('expanded')) {
+                button.textContent = 'Read Less';
+            } else {
+                button.textContent = 'Read More';
             }
         }
 
