@@ -1906,6 +1906,26 @@
                 /* Ensure image doesn't get clipped */
             }
 
+            .testimonial-vanessa .preview-text,
+            .testimonial-hanini .preview-text {
+                display: inline;
+            }
+
+            .testimonial-vanessa .full-text,
+            .testimonial-hanini .full-text {
+                display: none;
+            }
+
+            .testimonial-vanessa.expanded .preview-text,
+            .testimonial-hanini.expanded .preview-text {
+                display: none;
+            }
+
+            .testimonial-vanessa.expanded .full-text,
+            .testimonial-hanini.expanded .full-text {
+                display: inline;
+            }
+
             .blue-half {
                 height: 60px;
                 /* Just a decorative top bar on mobile */
@@ -2074,6 +2094,16 @@
             margin: 0rem auto 0 auto;
             /* Centers the line below text */
         }
+
+        .testimonial-vanessa .preview-text,
+        .testimonial-hanini .preview-text {
+            display: none;
+        }
+
+        .testimonial-vanessa .full-text,
+        .testimonial-hanini .full-text {
+            display: inline;
+        }
     </style>
 </head>
 
@@ -2130,19 +2160,27 @@
             <img src="testimonial1.jpeg" alt="Student Profile" class="intersection-pic">
             <div class="white-half">
                 <h3 class="testimonial-header">TESTIMONIAL</h3>
-                <p class="testimonial-text">
-                    "I studied a Bachelor’s in Biomedical Sciences, completing the first two years of my twinning
-                    programme in the Newcastle University medical campus in Johor, Malaysia, then continuing my final
-                    year studies in Newcastle University, UK. I then pursued a Master’s in Cancer Research in the same
-                    institute.
-                    I’m currently a research assistant at the Cancer Research UK Cambridge Institute, working on making
-                    improved laboratory models of ovarian cancer. Being a research assistant has been a great
-                    opportunity to be involved in innovative and exploratory science, and to be a part of the scientific
-                    community. As the research institute is an academic environment with many research students and
-                    university professors, it has also helped me transition very smoothly from student to work life.
-                    I hope Malaysians who are thinking of applying for university studies knew that there are a huge
-                    variety of options to study abroad currently available, whether full-time programmes, twinning
-                    progammes, or semester"
+                <p class="testimonial-text testimonial-vanessa">
+                    <span class="preview-text">"Studying through a twinning programme at Newcastle University gave me a
+                        smooth transition from student life into research work in the UK."</span>
+                    <span class="full-text">
+                        "I studied a Bachelor's in Biomedical Sciences, completing the first two years of my twinning
+                        programme in the Newcastle University medical campus in Johor, Malaysia, then continuing my
+                        final
+                        year studies in Newcastle University, UK. I then pursued a Master's in Cancer Research in the
+                        same
+                        institute.
+                        I'm currently a research assistant at the Cancer Research UK Cambridge Institute, working on
+                        making
+                        improved laboratory models of ovarian cancer. Being a research assistant has been a great
+                        opportunity to be involved in innovative and exploratory science, and to be a part of the
+                        scientific
+                        community. As the research institute is an academic environment with many research students and
+                        university professors, it has also helped me transition very smoothly from student to work life.
+                        I hope Malaysians who are thinking of applying for university studies knew that there are a huge
+                        variety of options to study abroad currently available, whether full-time programmes, twinning
+                        progammes, or semester"
+                    </span>
                 </p>
                 <button class="read-more-btn" onclick="toggleReadMore(this)">Read More</button>
                 <div class="profile-info">
@@ -2235,20 +2273,32 @@
             <img src="testimonial2.jpeg" alt="Student Profile" class="intersection-pic">
             <div class="white-half">
                 <h3 class="testimonial-header">TESTIMONIAL</h3>
-                <p class="testimonial-text">
-                    I completed my Bachelor’s degree in Chemical Engineering at Newcastle University. After graduating,
-                    I transitioned into the workforce as an Applications Engineer based in Manchester where I worked for
-                    2 years.
-                    Moving from student life to full-time employment in the UK was a significant adjustment. It was a
-                    major lifestyle change — managing tax, bills, and personal finances independently required
-                    discipline and careful planning. Despite the challenges, the post-study experience helped me grow
-                    professionally and personally, and gave me a clearer understanding of working culture in the UK.
-                    One thing I wish Malaysians knew earlier about post-study life in the UK is that both the financial
-                    reality and the work-life balance matter. While salaries may look attractive on paper, high living
-                    costs and taxes can significantly reduce take-home pay, so understanding this early helps set
-                    realistic expectations. At the same time, the UK’s strong work-life balance, including up to 28 days
-                    of annual leave and respect for personal time, makes working life more sustainable and rewarding.
-                    Knowing both sides allows graduates to plan better and actually enjoy life beyond work.
+                <p class="testimonial-text testimonial-hanini">
+                    <span class="preview-text">"Working in the UK taught me that post-study life is not just about
+                        costs, taxes and work-life balance."</span>
+                    <span class="full-text">
+                        I completed my Bachelor’s degree in Chemical Engineering at Newcastle University. After
+                        graduating,
+                        I transitioned into the workforce as an Applications Engineer based in Manchester where I worked
+                        for
+                        2 years.
+                        Moving from student life to full-time employment in the UK was a significant adjustment. It was
+                        a
+                        major lifestyle change — managing tax, bills, and personal finances independently required
+                        discipline and careful planning. Despite the challenges, the post-study experience helped me
+                        grow
+                        professionally and personally, and gave me a clearer understanding of working culture in the UK.
+                        One thing I wish Malaysians knew earlier about post-study life in the UK is that both the
+                        financial
+                        reality and the work-life balance matter. While salaries may look attractive on paper, high
+                        living
+                        costs and taxes can significantly reduce take-home pay, so understanding this early helps set
+                        realistic expectations. At the same time, the UK’s strong work-life balance, including up to 28
+                        days
+                        of annual leave and respect for personal time, makes working life more sustainable and
+                        rewarding.
+                        Knowing both sides allows graduates to plan better and actually enjoy life beyond work.
+                    </span>
                 </p>
                 <button class="read-more-btn" onclick="toggleReadMore(this)">Read More</button>
                 <div class="profile-info">
@@ -3602,12 +3652,30 @@
 
         function toggleReadMore(button) {
             const paragraph = button.previousElementSibling;
-            paragraph.classList.toggle('expanded');
+            const previewText = paragraph.querySelector('.preview-text');
+            const fullText = paragraph.querySelector('.full-text');
 
-            if (paragraph.classList.contains('expanded')) {
-                button.textContent = 'Read Less';
-            } else {
-                button.textContent = 'Read More';
+            // If using preview/full text structure
+            if (previewText && fullText) {
+                if (fullText.style.display === 'none') {
+                    previewText.style.display = 'none';
+                    fullText.style.display = 'inline';
+                    button.textContent = 'Read Less';
+                } else {
+                    previewText.style.display = 'inline';
+                    fullText.style.display = 'none';
+                    button.textContent = 'Read More';
+                }
+            }
+            // Otherwise use the old expand/collapse method
+            else {
+                paragraph.classList.toggle('expanded');
+
+                if (paragraph.classList.contains('expanded')) {
+                    button.textContent = 'Read Less';
+                } else {
+                    button.textContent = 'Read More';
+                }
             }
         }
 
